@@ -1,0 +1,22 @@
+.full-height-container {
+    background-color: rgb(245, 102, 102);
+    height: 100vh;
+  }
+
+  .titulo {
+    color: white;
+    font-size: 3rem;
+  }
+
+  .subtitulo {
+    color: rgb(236, 236, 236);
+    font-size: 1rem;
+  }
+
+  #contenido {
+    /*align items at center*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
