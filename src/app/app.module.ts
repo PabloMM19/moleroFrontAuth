@@ -16,6 +16,14 @@ import { CalendarioViewRoutedComponent } from './components/calendario/calendari
 import { CalendarioViewUnroutedComponent } from './components/calendario/calendario-view-unrouted/calendario.view.unrouted.component';
 import { DiagnosticoViewRoutedComponent } from './components/diagnosticos/diagnostico-view-routed/diagnostico-view-routed.component';
 import { DiagnosticoViewUnroutedComponent } from './components/diagnosticos/disgnostico-view-unrouted/diagnostico-view-unrouted.component';
+import { MedicacionViewRoutedComponent } from './components/medicacion/medicacion-view-routed/medicacion-view-routed.component';
+import { MedicacionViewUnroutedComponent } from './components/medicacion/medicacion-view-unrouted/medicacion-view-unrouted.component';
+import { MedidasViewRoutedComponent } from './components/medidas/medidas-view-routed/medidas-view-routed.component';
+import { MedidasViewUnroutedComponent } from './components/medidas/medidas-view-unrouted/medidas-view-unrouted.component';
+import { ProgenitoresViewRoutedComponent } from './components/progenitores/progenitores-view-routed/progenitores-view-routed.component';
+import { ProgenitoresViewUnroutedComponent } from './components/progenitores/progenitores-view-unrouted/progenitores-view-unrouted.component';
+import { PruebasViewRoutedComponent } from './components/pruebas/pruebas-view-routed/pruebas-view-routed.component';
+import { PruebasViewUnroutedComponent } from './components/pruebas/pruebas-view-unrouted/pruebas-view-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +36,15 @@ import { DiagnosticoViewUnroutedComponent } from './components/diagnosticos/disg
     CalendarioViewRoutedComponent,
     CalendarioViewUnroutedComponent,
     DiagnosticoViewRoutedComponent,
-    DiagnosticoViewUnroutedComponent
+    DiagnosticoViewUnroutedComponent,
+    MedicacionViewRoutedComponent,
+    MedicacionViewUnroutedComponent,
+    MedidasViewRoutedComponent,
+    MedidasViewUnroutedComponent,
+    ProgenitoresViewRoutedComponent,
+    ProgenitoresViewUnroutedComponent,
+    PruebasViewRoutedComponent,
+    PruebasViewUnroutedComponent
   ],
   imports: [
     BrowserModule,
