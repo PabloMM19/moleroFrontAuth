@@ -5,7 +5,8 @@
       <h1 class="titulo">Doctor Molero</h1>
       <h2 class="subtitulo">Tu consulta médica de confianza</h2><br>
       <div class="d-flex justify-content-center">
-        <a class="btn btn-outline-light mx-1" routerLink="/pacientes">Pacientes</a>
+        <a class="btn btn-outline-light mx-1" [routerLink]="['/pacientes']">Pacientes</a>
+        <a class="btn btn-outline-light mx-1" [routerLink]="['/diagnosticos']">Diagnosticos</a>
         <a class="btn btn-outline-light mx-1" routerLink="/visitas">Visitas</a>
         <a class="btn btn-outline-light mx-1" routerLink="/calendario">Calendario</a>
       </div>

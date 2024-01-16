@@ -16,10 +16,10 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                <tr>
+                <tr *ngFor="let paciente of pacientesData">
                     <td><img src="https://mdbootstrap.com/img/new/avatars/8.jpg" style="width: 70px; border-radius: 50%;"></td>
-                    <td>|ML-MR|</td>
-                    <td>Molero Marín, Pablo</td>
+                    <td>{{paciente.codigo}}</td>
+                    <td>{{paciente.papellido}} {{paciente.sapellido}}, {{paciente.nombre}}</td>
                     <td>V</td>
                     <td>21</td>
                     <td>Manuel Molero Peña <br> Alicia Marín Prado</td>

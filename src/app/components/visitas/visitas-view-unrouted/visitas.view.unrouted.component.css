@@ -1,0 +1,20 @@
+.full-height-container {
+    background-color: rgb(255, 193, 193);
+    height: 100vh;
+  }
+  
+  .titulo {
+    color: white;
+    font-size: 3rem;
+  }
+  
+  .subtitulo {
+    color: rgb(236, 236, 236);
+    font-size: 1rem;
+  }
+  
+  .table-responsive {
+    width: 80%; /* Ancho deseado para la tabla */
+    margin: 0 auto; /* Centrar horizontalmente */
+  }
+  
