@@ -24,6 +24,8 @@ import { ProgenitoresViewRoutedComponent } from './components/progenitores/proge
 import { ProgenitoresViewUnroutedComponent } from './components/progenitores/progenitores-view-unrouted/progenitores-view-unrouted.component';
 import { PruebasViewRoutedComponent } from './components/pruebas/pruebas-view-routed/pruebas-view-routed.component';
 import { PruebasViewUnroutedComponent } from './components/pruebas/pruebas-view-unrouted/pruebas-view-unrouted.component';
+import { SeguromedicoViewRoutedComponent } from './components/seguromedico/seguromedico-view-routed/seguromedico-view-routed.component';
+import { SeguromedicoViewUnroutedComponent } from './components/seguromedico/seguromedico-view-unrouted/seguromedico-view-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { PruebasViewUnroutedComponent } from './components/pruebas/pruebas-view-
     ProgenitoresViewRoutedComponent,
     ProgenitoresViewUnroutedComponent,
     PruebasViewRoutedComponent,
-    PruebasViewUnroutedComponent
+    PruebasViewUnroutedComponent,
+    SeguromedicoViewRoutedComponent,
+    SeguromedicoViewUnroutedComponent
   ],
   imports: [
     BrowserModule,

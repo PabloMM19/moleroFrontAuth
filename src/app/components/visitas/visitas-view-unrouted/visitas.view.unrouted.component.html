@@ -5,30 +5,32 @@
         <table class="table table-hover table-bordered">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Comentario</th>
+                    <th scope="col">Diagnostico</th>
+                    <th scope="col">Paciente</th>
+                    <th scope="col">Pruebas</th>
+                    <th scope="col">Medicacion</th>
+                    <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
+                <tr *ngFor="let visita of visitasData">
+                    <td>{{visita.id}}</td>
+                    <td>{{visita.fecha}}</td>
+                    <td>{{visita.comentario}}</td>
+                    <td>{{visita.diagnostico_id}}</td>
+                    <td>{{visita.paciente_id}}</td>
+                    <td>Extracción</td>
+                    <td>Paracetamol</td>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <a class="btn btn-primary btn-sm mx-1">Ver detalles</a>
+                            <a class="btn btn-warning btn-sm mx-1">Modificar</a>
+                            <a class="btn btn-danger btn-sm mx-1">Eliminar</a>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>

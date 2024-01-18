@@ -1,3 +1,30 @@
-<p>
-  seguromedico-view-unrouted works!
-</p>
+<div class="container-fluid full-height-container d-flex flex-column justify-content-center align-items-center">
+  <h1 class="titulo mb-4 text-center">Vista de los pacientes</h1>
+
+  <div class="table-responsive">
+      <table class="table table-hover table-bordered">
+          <thead>
+              <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Descripción</th>
+                  <th scope="col">Acciones</th>
+              </tr>
+          </thead>
+          <tbody class="table-group-divider">
+              <tr *ngFor="let seguro of segurosMedicosData">
+                  <td>{{seguro.id}}</td>
+                  <td>{{seguro.companyia}}</td>
+                  <td>{{seguro.descripcion}}</td>
+                  <td>
+                      <div class="d-flex justify-content-center">
+                          <a class="btn btn-primary btn-sm mx-1">Ver detalles</a>
+                          <a class="btn btn-warning btn-sm mx-1">Modificar</a>
+                          <a class="btn btn-danger btn-sm mx-1">Eliminar</a>
+                      </div>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
