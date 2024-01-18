@@ -35,6 +35,19 @@ export class PacientesViewUnroutedComponent {
     );
   }
 
+  eliminarPaciente(id: number) {
+    this.pacientesService.deletePaciente(id).subscribe(
+      data => {
+        console.log('Paciente eliminado', data);
+        this.actualizarListaPacientes();
+      },
+      error => {
+        console.error('Error al eliminar el paciente', error);
+        // Maneja el error según tus necesidades
+      }
+    );
+  }
+
   private actualizarListaPacientes(): void {
     // Llama a tu servicio para obtener la lista actualizada de entrenadores
     this.pacientesService.getPacienteData().subscribe(

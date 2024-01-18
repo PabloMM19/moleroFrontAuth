@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FullCalendarModule } from '@fullcalendar/angular';
 
@@ -29,6 +29,10 @@ import { SeguromedicoViewRoutedComponent } from './components/seguromedico/segur
 import { SeguromedicoViewUnroutedComponent } from './components/seguromedico/seguromedico-view-unrouted/seguromedico-view-unrouted.component';
 import { MenuAppComponent } from './components/shared/header/menuApp/menuApp.component';
 import { FooterAppComponent } from './components/shared/footer/footerApp/footerApp.component';
+import { PacientesNewRoutedComponent } from './components/pacientes/pacientes-new-routed/pacientes-new-routed.component';
+import { PacientesNewUnroutedComponent } from './components/pacientes/pacientes-new-unrouted/pacientes-new-unrouted.component';
+import { PacientesEditRoutedComponent } from './components/pacientes/pacientes-edit-routed/pacientes-edit-routed.component';
+import { PacientesEditUnroutedComponent } from './components/pacientes/pacientes-edit-unrouted/pacientes-edit-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +57,11 @@ import { FooterAppComponent } from './components/shared/footer/footerApp/footerA
     SeguromedicoViewRoutedComponent,
     SeguromedicoViewUnroutedComponent,
     MenuAppComponent,
-    FooterAppComponent
+    FooterAppComponent,
+    PacientesNewRoutedComponent,
+    PacientesNewUnroutedComponent,
+    PacientesEditRoutedComponent,
+    PacientesEditUnroutedComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +69,8 @@ import { FooterAppComponent } from './components/shared/footer/footerApp/footerA
     RouterModule,
     FullCalendarModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

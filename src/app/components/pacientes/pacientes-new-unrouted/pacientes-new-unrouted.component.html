@@ -1,0 +1,35 @@
+<form (submit)="onSubmit()" style="margin-bottom: 5%;">
+  <div class="mb-3">
+    <label for="id" class="form-label">id</label>
+    <input type="text" class="form-control" id="id" [(ngModel)]="paciente.id" name="id" required>
+  </div>
+  <div class="mb-3">
+    <label for="codigo" class="form-label">codigo</label>
+    <input type="text" class="form-control" id="codigo" [(ngModel)]="paciente.codigo" name="codigo" required>
+  </div>
+  <div class="mb-3">
+    <label for="fnacimiento" class="form-label">fnacimiento</label>
+    <input type="text" class="form-control" id="fnacimiento" [(ngModel)]="paciente.fnacimiento" name="fnacimiento" required>
+  </div>
+  <div class="mb-3">
+    <label for="nombre" class="form-label">nombre</label>
+    <input type="text" class="form-control" id="nombre" [(ngModel)]="paciente.nombre" name="nombre" required>
+  </div>
+  <div class="mb-3">
+    <label for="papellido" class="form-label">papellido</label>
+    <input type="text" class="form-control" id="papellido" [(ngModel)]="paciente.papellido" name="papellido" required>
+  </div>
+  <div class="mb-3">
+    <label for="sapellido" class="form-label">sapellido</label>
+    <input type="text" class="form-control" id="sapellido" [(ngModel)]="paciente.sapellido" name="sapellido" required>
+  </div>
+  <div class="mb-3">
+    <label for="foto" class="form-label">foto</label>
+    <input type="text" class="form-control" id="foto" [(ngModel)]="paciente.foto" name="foto" required>
+  </div>
+  <div>
+    <label for="seguromedico_id" class="form-label">seguromedico_id</label>
+    <input type="text" class="form-control" id="seguromedico_id" [(ngModel)]="paciente.seguromedico_id" name="seguromedico_id" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
