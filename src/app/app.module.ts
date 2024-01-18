@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { FullCalendarModule } from '@fullcalendar/angular';
 
@@ -26,6 +27,8 @@ import { PruebasViewRoutedComponent } from './components/pruebas/pruebas-view-ro
 import { PruebasViewUnroutedComponent } from './components/pruebas/pruebas-view-unrouted/pruebas-view-unrouted.component';
 import { SeguromedicoViewRoutedComponent } from './components/seguromedico/seguromedico-view-routed/seguromedico-view-routed.component';
 import { SeguromedicoViewUnroutedComponent } from './components/seguromedico/seguromedico-view-unrouted/seguromedico-view-unrouted.component';
+import { MenuAppComponent } from './components/shared/header/menuApp/menuApp.component';
+import { FooterAppComponent } from './components/shared/footer/footerApp/footerApp.component';
 
 @NgModule({
   declarations: [
@@ -48,14 +51,17 @@ import { SeguromedicoViewUnroutedComponent } from './components/seguromedico/seg
     PruebasViewRoutedComponent,
     PruebasViewUnroutedComponent,
     SeguromedicoViewRoutedComponent,
-    SeguromedicoViewUnroutedComponent
+    SeguromedicoViewUnroutedComponent,
+    MenuAppComponent,
+    FooterAppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     FullCalendarModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

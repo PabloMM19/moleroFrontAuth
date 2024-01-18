@@ -34,5 +34,16 @@
                 </tr>
             </tbody>
         </table>
+        <div class="pagination">
+            <button class="btn btn-primary" (click)="goToFirstPage()"><<</button>&nbsp;
+            <button class="btn btn-primary" (click)="prevPage()"><</button>&nbsp;
+          
+            <select style="text-align: center;" [(ngModel)]="currentPage" class="form-control" (change)="currentPage !== null ? goToPage(currentPage) : null">
+              <option *ngFor="let page of pages" [value]="page" [selected]="page === currentPage">{{ page + 1 }}</option>
+            </select>&nbsp;
+          
+            <button class="btn btn-primary" (click)="nextPage()">></button>&nbsp;
+            <button class="btn btn-primary" (click)="goToLastPage()">>></button>
+          </div>
     </div>
 </div>
