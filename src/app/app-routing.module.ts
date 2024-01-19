@@ -12,6 +12,10 @@ import { PruebasViewRoutedComponent } from "./components/pruebas/pruebas-view-ro
 import { SeguromedicoViewRoutedComponent } from "./components/seguromedico/seguromedico-view-routed/seguromedico-view-routed.component";
 import { PacientesNewRoutedComponent } from "./components/pacientes/pacientes-new-routed/pacientes-new-routed.component";
 import { PacientesEditRoutedComponent } from "./components/pacientes/pacientes-edit-routed/pacientes-edit-routed.component";
+import { DiagnosticosNewRoutedComponent } from "./components/diagnosticos/diagnosticos-new-routed/diagnosticos-new-routed.component";
+import { DiagnosticosEditRoutedComponent } from "./components/diagnosticos/diagnosticos-edit-routed/diagnosticos-edit-routed.component";
+import { MedicacionNewRoutedComponent } from "./components/medicacion/medicacion-new-routed/medicacion-new-routed.component";
+import { MedicacionEditRoutedComponent } from "./components/medicacion/medicacion-edit-routed/medicacion-edit-routed.component";
 
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' }, // Redirigir la ruta vacía a '/home'
@@ -27,6 +31,10 @@ const routes: Routes = [
     { path: 'seguros', component: SeguromedicoViewRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
     { path: 'pacientes/nuevo', component: PacientesNewRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
     { path: 'pacientes/editar/:id', component: PacientesEditRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
+    { path: 'diagnosticos/nuevo', component: DiagnosticosNewRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
+    { path: 'diagnosticos/editar/:id', component: DiagnosticosEditRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
+    { path: 'medicaciones/nuevo', component: MedicacionNewRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
+    { path: 'medicaciones/editar/:id', component: MedicacionEditRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
   ];
   
 

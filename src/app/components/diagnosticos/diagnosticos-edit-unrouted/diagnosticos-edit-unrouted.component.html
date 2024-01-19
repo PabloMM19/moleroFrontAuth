@@ -1,0 +1,15 @@
+<form [formGroup]="diagnosticoForm" (submit)="onSubmit()" style="margin-bottom: 5%;">
+  <div class="mb-3">
+    <label for="id" class="form-label">id</label>
+    <input type="text" class="form-control" id="id" formControlName="id" name="id" required>
+  </div>
+  <div class="mb-3">
+    <label for="nombre" class="form-label">nombre</label>
+    <input type="text" class="form-control" id="nombre" formControlName="nombre" name="nombre" required>
+  </div>
+  <div class="mb-3">
+    <label for="descripcion" class="form-label">descripcion</label>
+    <input type="text" class="form-control" id="descripcion" formControlName="descripcion" name="descripcion" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>

@@ -1,3 +1,4 @@
+import { DiagnosticosNewUnroutedComponent } from './components/diagnosticos/diagnosticos-new-unrouted/diagnosticos-new-unrouted.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -16,7 +17,7 @@ import { VisitasViewUnroutedComponent } from './components/visitas/visitas-view-
 import { CalendarioViewRoutedComponent } from './components/calendario/calendario-view-routed/calendario.view.routed.component';
 import { CalendarioViewUnroutedComponent } from './components/calendario/calendario-view-unrouted/calendario.view.unrouted.component';
 import { DiagnosticoViewRoutedComponent } from './components/diagnosticos/diagnostico-view-routed/diagnostico-view-routed.component';
-import { DiagnosticoViewUnroutedComponent } from './components/diagnosticos/disgnostico-view-unrouted/diagnostico-view-unrouted.component';
+import { DiagnosticoViewUnroutedComponent } from './components/diagnosticos/diagnostico-view-unrouted/diagnostico-view-unrouted.component';
 import { MedicacionViewRoutedComponent } from './components/medicacion/medicacion-view-routed/medicacion-view-routed.component';
 import { MedicacionViewUnroutedComponent } from './components/medicacion/medicacion-view-unrouted/medicacion-view-unrouted.component';
 import { MedidasViewRoutedComponent } from './components/medidas/medidas-view-routed/medidas-view-routed.component';
@@ -33,6 +34,13 @@ import { PacientesNewRoutedComponent } from './components/pacientes/pacientes-ne
 import { PacientesNewUnroutedComponent } from './components/pacientes/pacientes-new-unrouted/pacientes-new-unrouted.component';
 import { PacientesEditRoutedComponent } from './components/pacientes/pacientes-edit-routed/pacientes-edit-routed.component';
 import { PacientesEditUnroutedComponent } from './components/pacientes/pacientes-edit-unrouted/pacientes-edit-unrouted.component';
+import { DiagnosticosEditRoutedComponent } from './components/diagnosticos/diagnosticos-edit-routed/diagnosticos-edit-routed.component';
+import { DiagnosticosEditUnroutedComponent } from './components/diagnosticos/diagnosticos-edit-unrouted/diagnosticos-edit-unrouted.component';
+import { DiagnosticosNewRoutedComponent } from './components/diagnosticos/diagnosticos-new-routed/diagnosticos-new-routed.component';
+import { MedicacionEditRoutedComponent } from './components/medicacion/medicacion-edit-routed/medicacion-edit-routed.component';
+import { MedicacionEditUnroutedComponent } from './components/medicacion/medicacion-edit-unrouted/medicacion-edit-unrouted.component';
+import { MedicacionNewRoutedComponent } from './components/medicacion/medicacion-new-routed/medicacion-new-routed.component';
+import { MedicacionNewUnroutedComponent } from './components/medicacion/medicacion-new-unrouted/medicacion-new-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +69,15 @@ import { PacientesEditUnroutedComponent } from './components/pacientes/pacientes
     PacientesNewRoutedComponent,
     PacientesNewUnroutedComponent,
     PacientesEditRoutedComponent,
-    PacientesEditUnroutedComponent
+    PacientesEditUnroutedComponent,
+    DiagnosticosEditRoutedComponent,
+    DiagnosticosEditUnroutedComponent,
+    DiagnosticosNewRoutedComponent,
+    DiagnosticosNewUnroutedComponent,
+    MedicacionEditRoutedComponent,
+    MedicacionEditUnroutedComponent,
+    MedicacionNewRoutedComponent,
+    MedicacionNewUnroutedComponent
   ],
   imports: [
     BrowserModule,

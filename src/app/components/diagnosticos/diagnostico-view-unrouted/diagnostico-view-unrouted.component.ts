@@ -23,7 +23,7 @@ export class DiagnosticoViewUnroutedComponent implements OnInit {
   }
 
   cargaDiagnosticos() {
-    this.diagnosticosService.getPacienteDataPage(this.currentPage, this.pageSize).subscribe(
+    this.diagnosticosService.getDiagnosticoDataPage(this.currentPage, this.pageSize).subscribe(
       data => {
         this.diagnosticosData = data.content;
         this.totalPages = data.totalPages;
@@ -36,9 +36,24 @@ export class DiagnosticoViewUnroutedComponent implements OnInit {
     );
   }
 
-  private actualizarListaPacientes(): void {
+  
+
+  eliminarDiagnostico(id: number) {
+    this.diagnosticosService.deleteDiagnostico(id).subscribe(
+      data => {
+        console.log('Diagnostico eliminado', data);
+        this.actualizarListaDiagnosticos();
+      },
+      error => {
+        console.error('Error al eliminar el paciente', error);
+        // Maneja el error según tus necesidades
+      }
+    );
+  }
+
+  private actualizarListaDiagnosticos(): void {
     // Llama a tu servicio para obtener la lista actualizada de entrenadores
-    this.diagnosticosService.getPacienteData().subscribe(
+    this.diagnosticosService.getDiagnosticoData().subscribe(
       data => {
         this.diagnosticosData = data.content;
       },

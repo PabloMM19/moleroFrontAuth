@@ -12,7 +12,7 @@ export class DiagnosticoViewRoutedComponent implements OnInit {
 diagnosticosData: IDiagnosticos[] = [];
 
   constructor( private dataService: DiagnosticosService ) {
-    this.dataService.getPacienteData().subscribe((data: IDiagnosticosData) => {
+    this.dataService.getDiagnosticoData().subscribe((data: IDiagnosticosData) => {
       this.diagnosticosData = data.content;
       console.log(data); // Imprime los datos en la consola para verificar que se estan recibiendo
     });
