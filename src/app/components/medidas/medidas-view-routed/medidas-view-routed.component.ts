@@ -12,7 +12,7 @@ export class MedidasViewRoutedComponent implements OnInit {
   medidasData: IMedidas[] = [];
 
   constructor(private dataService: MedidasService) {
-    this.dataService.getPacienteData().subscribe((data: IMedidasData) => {
+    this.dataService.getMedidaData().subscribe((data: IMedidasData) => {
       this.medidasData = data.content;
       console.log(data); // Imprime los datos en la consola para verificar que se estan recibiendo
     });

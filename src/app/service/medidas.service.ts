@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IMedidasData } from '../model/medida.model';
+import { IMedidas, IMedidasData } from '../model/medida.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,13 +12,30 @@ export class MedidasService {
 
   constructor(private http: HttpClient) { }
 
-  getPacienteData() {
+  getMedidaData() {
     return this.http.get<IMedidasData>(`${this.apiUrl}/medida?page=0&size=10`);
   }
 
-  getPacienteDataPage(pageNumber: number, pageSize: number): Observable<IMedidasData> {
+  getDetailMedida(id: number) {
+    return this.http.get<IMedidas>(`${this.apiUrl}/medida/${id}`);
+  }
+
+  getMedidaDataPage(pageNumber: number, pageSize: number): Observable<IMedidasData> {
     const url = `${this.apiUrl}/medida?page=${pageNumber}&size=${pageSize}`;
     return this.http.get<IMedidasData>(url);
+  }
+
+  createMedida(medida: IMedidas): Observable<IMedidas>{
+    return this.http.post<IMedidas>(`${this.apiUrl}/medida`, medida);
+  }
+
+  updateMedida(id: number, medida:IMedidas): Observable<IMedidas>{
+    const url = `${this.apiUrl}/medida/${id}`;
+    return this.http.put<IMedidas>(url, medida);
+  }
+
+  deleteMedida(id: number): Observable<Number>{
+    return this.http.delete<Number>(`${this.apiUrl}/medida/${id}`);
   }
 
 }

@@ -41,6 +41,10 @@ import { MedicacionEditRoutedComponent } from './components/medicacion/medicacio
 import { MedicacionEditUnroutedComponent } from './components/medicacion/medicacion-edit-unrouted/medicacion-edit-unrouted.component';
 import { MedicacionNewRoutedComponent } from './components/medicacion/medicacion-new-routed/medicacion-new-routed.component';
 import { MedicacionNewUnroutedComponent } from './components/medicacion/medicacion-new-unrouted/medicacion-new-unrouted.component';
+import { MedidasEditRoutedComponent } from './components/medidas/medidas-edit-routed/medidas-edit-routed.component';
+import { MedidasEditUnroutedComponent } from './components/medidas/medidas-edit-unrouted/medidas-edit-unrouted.component';
+import { MedidasNewRoutedComponent } from './components/medidas/medidas-new-routed/medidas-new-routed.component';
+import { MedidasNewUnroutedComponent } from './components/medidas/medidas-new-unrouted/medidas-new-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +81,11 @@ import { MedicacionNewUnroutedComponent } from './components/medicacion/medicaci
     MedicacionEditRoutedComponent,
     MedicacionEditUnroutedComponent,
     MedicacionNewRoutedComponent,
-    MedicacionNewUnroutedComponent
+    MedicacionNewUnroutedComponent,
+    MedidasEditRoutedComponent,
+    MedidasEditUnroutedComponent,
+    MedidasNewRoutedComponent,
+    MedidasNewUnroutedComponent
   ],
   imports: [
     BrowserModule,

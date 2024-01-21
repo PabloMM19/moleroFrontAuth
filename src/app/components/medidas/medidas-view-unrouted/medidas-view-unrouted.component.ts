@@ -23,7 +23,7 @@ export class MedidasViewUnroutedComponent implements OnInit {
   }
 
   cargaMedidas() {
-    this.medidasService.getPacienteDataPage(this.currentPage, this.pageSize).subscribe(
+    this.medidasService.getMedidaDataPage(this.currentPage, this.pageSize).subscribe(
       data => {
         this.medidasData = data.content;
         this.totalPages = data.totalPages;
@@ -36,9 +36,22 @@ export class MedidasViewUnroutedComponent implements OnInit {
     );
   }
 
+  eliminarMedida(id: number) {
+    this.medidasService.deleteMedida(id).subscribe(
+      data => {
+        console.log('Paciente eliminado', data);
+        this.actualizarListaPacientes();
+      },
+      error => {
+        console.error('Error al eliminar el paciente', error);
+        // Maneja el error según tus necesidades
+      }
+    );
+  }
+
   private actualizarListaPacientes(): void {
     // Llama a tu servicio para obtener la lista actualizada de entrenadores
-    this.medidasService.getPacienteData().subscribe(
+    this.medidasService.getMedidaData().subscribe(
       data => {
         this.medidasData = data.content;
       },
