@@ -18,6 +18,8 @@ import { MedicacionNewRoutedComponent } from "./components/medicacion/medicacion
 import { MedicacionEditRoutedComponent } from "./components/medicacion/medicacion-edit-routed/medicacion-edit-routed.component";
 import { MedidasNewRoutedComponent } from "./components/medidas/medidas-new-routed/medidas-new-routed.component";
 import { MedidasEditRoutedComponent } from "./components/medidas/medidas-edit-routed/medidas-edit-routed.component";
+import { ProgenitoresNewRoutedComponent } from "./components/progenitores/progenitores-new-routed/progenitores-new-routed.component";
+import { ProgenitoresEditRoutedComponent } from "./components/progenitores/progenitores-edit-routed/progenitores-edit-routed.component";
 
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' }, // Redirigir la ruta vacía a '/home'
@@ -39,6 +41,8 @@ const routes: Routes = [
     { path: 'medicaciones/editar/:id', component: MedicacionEditRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
     { path: 'medidas/nuevo', component: MedidasNewRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
     { path: 'medidas/editar/:id', component: MedidasEditRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
+    { path: 'progenitores/nuevo', component: ProgenitoresNewRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
+    { path: 'progenitores/editar/:id', component: ProgenitoresEditRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
     
   ];
   

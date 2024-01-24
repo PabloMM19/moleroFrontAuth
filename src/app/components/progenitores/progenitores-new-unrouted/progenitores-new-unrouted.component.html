@@ -1,0 +1,31 @@
+<form (submit)="onSubmit()" style="margin-bottom: 5%;">
+  <div class="mb-3">
+    <label for="id" class="form-label">id</label>
+    <input type="text" class="form-control" id="id" [(ngModel)]="progenitor.id" name="id" required>
+  </div>
+  <div class="mb-3">
+    <label for="dni" class="form-label">dni</label>
+    <input type="text" class="form-control" id="dni" [(ngModel)]="progenitor.dni" name="dni" required>
+  </div>
+  <div class="mb-3">
+    <label for="nombre" class="form-label">nombre</label>
+    <input type="text" class="form-control" id="nombre" [(ngModel)]="progenitor.nombre" name="nombre" required>
+  </div>
+  <div class="mb-3">
+    <label for="papellido" class="form-label">papellido</label>
+    <input type="text" class="form-control" id="papellido" [(ngModel)]="progenitor.papellido" name="papellido" required>
+  </div>
+  <div class="mb-3">
+    <label for="sapellido" class="form-label">sapellido</label>
+    <input type="text" class="form-control" id="sapellido" [(ngModel)]="progenitor.sapellido" name="sapellido" required>
+  </div>
+  <div class="mb-3">
+    <label for="rol" class="form-label">rol</label>
+    <input type="text" class="form-control" id="rol" [(ngModel)]="progenitor.rol" name="rol" required>
+  </div>
+  <div>
+    <label for="paciente_id" class="form-label">paciente_id</label>
+    <input type="text" class="form-control" id="paciente_id" [(ngModel)]="progenitor.paciente_id" name="paciente_id" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>

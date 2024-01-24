@@ -45,6 +45,10 @@ import { MedidasEditRoutedComponent } from './components/medidas/medidas-edit-ro
 import { MedidasEditUnroutedComponent } from './components/medidas/medidas-edit-unrouted/medidas-edit-unrouted.component';
 import { MedidasNewRoutedComponent } from './components/medidas/medidas-new-routed/medidas-new-routed.component';
 import { MedidasNewUnroutedComponent } from './components/medidas/medidas-new-unrouted/medidas-new-unrouted.component';
+import { ProgenitoresEditRoutedComponent } from './components/progenitores/progenitores-edit-routed/progenitores-edit-routed.component';
+import { ProgenitoresNewRoutedComponent } from './components/progenitores/progenitores-new-routed/progenitores-new-routed.component';
+import { ProgenitoresEditUnroutedComponent } from './components/progenitores/progenitores-edit-unrouted/progenitores-edit-unrouted.component';
+import { ProgenitoresNewUnroutedComponent } from './components/progenitores/progenitores-new-unrouted/progenitores-new-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +89,11 @@ import { MedidasNewUnroutedComponent } from './components/medidas/medidas-new-un
     MedidasEditRoutedComponent,
     MedidasEditUnroutedComponent,
     MedidasNewRoutedComponent,
-    MedidasNewUnroutedComponent
+    MedidasNewUnroutedComponent,
+    ProgenitoresEditRoutedComponent,
+    ProgenitoresNewRoutedComponent,
+    ProgenitoresEditUnroutedComponent,
+    ProgenitoresNewUnroutedComponent
   ],
   imports: [
     BrowserModule,
