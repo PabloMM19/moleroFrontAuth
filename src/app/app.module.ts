@@ -49,6 +49,14 @@ import { ProgenitoresEditRoutedComponent } from './components/progenitores/proge
 import { ProgenitoresNewRoutedComponent } from './components/progenitores/progenitores-new-routed/progenitores-new-routed.component';
 import { ProgenitoresEditUnroutedComponent } from './components/progenitores/progenitores-edit-unrouted/progenitores-edit-unrouted.component';
 import { ProgenitoresNewUnroutedComponent } from './components/progenitores/progenitores-new-unrouted/progenitores-new-unrouted.component';
+import { VisitasNewRoutedComponent } from './components/visitas/visitas-new-routed/visitas-new-routed.component';
+import { VisitasNewUnroutedComponent } from './components/visitas/visitas-new-unrouted/visitas-new-unrouted.component';
+import { VisitasEditRoutedComponent } from './components/visitas/visitas-edit-routed/visitas-edit-routed.component';
+import { VisitasEditUnroutedComponent } from './components/visitas/visitas-edit-unrouted/visitas-edit-unrouted.component';
+import { PruebasNewRoutedComponent } from './components/pruebas/pruebas-new-routed/pruebas-new-routed.component';
+import { PruebasNewUnroutedComponent } from './components/pruebas/pruebas-new-unrouted/pruebas-new-unrouted.component';
+import { PruebasEditRoutedComponent } from './components/pruebas/pruebas-edit-routed/pruebas-edit-routed.component';
+import { PruebasEditUnroutedComponent } from './components/pruebas/pruebas-edit-unrouted/pruebas-edit-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +101,15 @@ import { ProgenitoresNewUnroutedComponent } from './components/progenitores/prog
     ProgenitoresEditRoutedComponent,
     ProgenitoresNewRoutedComponent,
     ProgenitoresEditUnroutedComponent,
-    ProgenitoresNewUnroutedComponent
+    ProgenitoresNewUnroutedComponent,
+    VisitasNewRoutedComponent,
+    VisitasNewUnroutedComponent,
+    VisitasEditRoutedComponent,
+    VisitasEditUnroutedComponent,
+    PruebasNewRoutedComponent,
+    PruebasNewUnroutedComponent,
+    PruebasEditRoutedComponent,
+    PruebasEditUnroutedComponent
   ],
   imports: [
     BrowserModule,

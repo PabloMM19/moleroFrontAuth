@@ -36,6 +36,19 @@ export class VisitasViewUnroutedComponent {
     );
   }
 
+  eliminarVisita(id: number) {
+    this.visitasService.deleteVisita(id).subscribe(
+      data => {
+        console.log('Visita eliminado', data);
+        this.actualizarListaPacientes();
+      },
+      error => {
+        console.error('Error al eliminar la visita', error);
+        // Maneja el error según tus necesidades
+      }
+    );
+  }
+
 
   private actualizarListaPacientes(): void {
     // Llama a tu servicio para obtener la lista actualizada de entrenadores

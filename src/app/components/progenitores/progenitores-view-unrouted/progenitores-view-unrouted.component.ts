@@ -36,6 +36,19 @@ export class ProgenitoresViewUnroutedComponent implements OnInit {
     );
   }
 
+  eliminarProgenitor(id: number) {
+    this.progenitoresService.deleteProgenitor(id).subscribe(
+      data => {
+        console.log('Progenitor eliminado', data);
+        this.actualizarListaPacientes();
+      },
+      error => {
+        console.error('Error al eliminar el progenitor', error);
+        // Maneja el error según tus necesidades
+      }
+    );
+  }
+
   private actualizarListaPacientes(): void {
     // Llama a tu servicio para obtener la lista actualizada de entrenadores
     this.progenitoresService.getProgenitorData().subscribe(

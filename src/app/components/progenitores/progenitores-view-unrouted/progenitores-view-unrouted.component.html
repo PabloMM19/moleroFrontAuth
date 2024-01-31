@@ -23,8 +23,8 @@
                   <td>
                       <div class="d-flex justify-content-center">
                           <a class="btn btn-primary btn-sm mx-1">Ver detalles</a>
-                          <a class="btn btn-warning btn-sm mx-1">Modificar</a>
-                          <a class="btn btn-danger btn-sm mx-1">Eliminar</a>
+                          <a class="btn btn-warning btn-sm mx-1" routerLink="/progenitores/editar/{{progenitor.id}}">Modificar</a>
+                          <a class="btn btn-danger btn-sm mx-1" (click)="eliminarProgenitor(progenitor.id)" >Eliminar</a>
                       </div>
                   </td>
               </tr>

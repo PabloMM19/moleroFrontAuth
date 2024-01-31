@@ -36,6 +36,19 @@ export class PruebasViewUnroutedComponent implements OnInit {
     );
   }
 
+  eliminarPrueba(id: number) {
+    this.pruebasService.deletePrueba(id).subscribe(
+      data => {
+        console.log('Prueba eliminada');
+        this.actualizarListaPacientes();
+      },
+      error => {
+        console.error('Error eliminando la prueba: ' + error);
+        // Maneja el error según tus necesidades
+      }
+    );
+  }
+
   private actualizarListaPacientes(): void {
     // Llama a tu servicio para obtener la lista actualizada de entrenadores
     this.pruebasService.getPruebasData().subscribe(

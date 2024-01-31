@@ -1,0 +1,23 @@
+<form  [formGroup]="visitaForm" (submit)="onSubmit()" style="margin-bottom: 5%;">
+  <div class="mb-3">
+    <label for="id" class="form-label">id</label>
+    <input type="text" class="form-control" id="id" formControlName="id" name="id" required>
+  </div>
+  <div class="mb-3">
+    <label for="fecha" class="form-label">fecha</label>
+    <input type="text" class="form-control" id="fecha" formControlName="fecha" name="fecha" required>
+  </div>
+  <div class="mb-3">
+    <label for="comentario" class="form-label">comentario</label>
+    <input type="text" class="form-control" id="comentario" formControlName="comentario" name="comentario" required>
+  </div>
+  <div class="mb-3">
+    <label for="diagnostico_id" class="form-label">diagnostico_id</label>
+    <input type="text" class="form-control" id="diagnostico_id" formControlName="diagnostico_id" name="diagnostico_id" required>
+  </div>
+  <div class="mb-3">
+    <label for="paciente_id" class="form-label">paciente_id</label>
+    <input type="text" class="form-control" id="paciente_id" formControlName="paciente_id" name="paciente_id" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>

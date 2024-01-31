@@ -1,70 +1,49 @@
-<div class="container-fluid full-height-container d-flex flex-column justify-content-center align-items-center">
-    <h1 class="titulo mb-4 text-center">Vista de los pacientes</h1>
+<div class="container-fluid full-height-container d-flex flex-column justify-content-center align-items-center" style="margin-top: 1%;">
 
-    <div class="table-responsive">
-        <table class="table table-hover table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Foto</th>
-                    <th scope="col">Código</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Sexo</th>
-                    <th scope="col">Edad</th>
-                    <th scope="col">Progenitores</th>
-                    <th scope="col">S. Médico</th>
-                    <th scope="col">Acciones</th>
-                </tr>
-            </thead>
-            <tbody class="table-group-divider">
-                <tr *ngFor="let paciente of pacientesData">
-                    <td><img src="https://mdbootstrap.com/img/new/avatars/8.jpg" style="width: 70px; border-radius: 50%;"></td>
-                    <td>{{paciente.codigo}}</td>
-                    <td>{{paciente.papellido}} {{paciente.sapellido}}, {{paciente.nombre}}</td>
-                    <td>V</td>
-                    <td>21</td>
-                    <td>Manuel Molero Peña <br> Alicia Marín Prado</td>
-                    <td>Mapfre</td>
-                    <!-- ESTAS ACCIONES DEBERÍAN APARECER DENTRO DE VER PACIENTE MEJOR
-                    <td>
-                        <div class="d-flex justify-content-center">
-                            <a class="btn btn-success btn-sm mx-1">Historial</a>
-                            <a class="btn btn-info btn-sm mx-1">Percentiles</a>
-                            <a class="btn btn-dark btn-sm mx-1">Alergias</a>
-                            <a class="btn btn-secondary btn-sm mx-1">E. Crónicas</a>
+    <!-- Barra de búsqueda y botón "Añadir paciente" -->
+    <div class="col-md-8">
+        <div class="d-flex align-items-center mb-3">
+            <button type="button" class="btn btn-outline-secondary me-4" routerLink="/pacientes/nuevo" style="white-space: nowrap; margin-left: 4.5%;">Añadir paciente</button>
+            
+            <div class="input-group" style="margin-right: -13.8%;">
+                <input type="text" class="form-control" placeholder="Buscar paciente" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tarjetas de pacientes -->
+    <div class="container" style="margin-left: 19%;">
+        <div class="row row-cards">
+            <div *ngFor="let paciente of pacientesData" class="col-md-2">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top card-img-square" src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">{{paciente.codigo}}</p>
+                        <p class="card-text">{{paciente.papellido}} {{paciente.sapellido}}, {{paciente.nombre}}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Ver</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/pacientes/editar/{{paciente.id}}">Editar</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary" (click)="eliminarPaciente(paciente.id)" >Eliminar</button>
+                            </div>
                         </div>
-                    </td>
-                -->
-                    <td>
-                        <div class="d-flex justify-content-center">
-                            <a class="btn btn-primary btn-sm mx-1">Ver detalles</a>
-                            <a class="btn btn-warning btn-sm mx-1" routerLink="/pacientes/editar/{{paciente.id}}">Modificar</a>
-                            <a class="btn btn-danger btn-sm mx-1" (click)="eliminarPaciente(paciente.id)">Eliminar</a>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="pagination">
-            <button class="btn btn-primary" (click)="goToFirstPage()"><<</button>&nbsp;
-            <button class="btn btn-primary" (click)="prevPage()"><</button>&nbsp;
-          
-            <select style="text-align: center;" [(ngModel)]="currentPage" class="form-control" (change)="currentPage !== null ? goToPage(currentPage) : null">
-              <option *ngFor="let page of pages" [value]="page" [selected]="page === currentPage">{{ page + 1 }}</option>
-            </select>&nbsp;
-          
-            <button class="btn btn-primary" (click)="nextPage()">></button>&nbsp;
-            <button class="btn btn-primary" (click)="goToLastPage()">>></button>
-          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paginación -->
+    <div class="pagination">
+        <button class="btn btn-outline-secondary" (click)="goToFirstPage()"><<</button>&nbsp;
+        <button class="btn btn-outline-secondary" (click)="prevPage()"><</button>&nbsp;
+
+        <select style="text-align: center;" [(ngModel)]="currentPage" class="form-control" (change)="currentPage !== null ? goToPage(currentPage) : null">
+          <option *ngFor="let page of pages" [value]="page" [selected]="page === currentPage">{{ page + 1 }}</option>
+        </select>&nbsp;
+
+        <button class="btn btn-outline-secondary" (click)="nextPage()">></button>&nbsp;
+        <button class="btn btn-outline-secondary" (click)="goToLastPage()">>></button>
     </div>
 </div>
-<!--<div style="display: flex; flex-wrap: wrap; gap: 10px;">
-    <div *ngFor="let paciente of pacientesData" class="card" style="width: 18rem;">
-      <img class="card-img-top" src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{paciente.papellido}} {{paciente.sapellido}}, {{paciente.nombre}}</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>-->
-  

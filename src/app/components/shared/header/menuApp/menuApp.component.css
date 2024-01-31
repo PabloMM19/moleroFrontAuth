@@ -1,59 +1,47 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
+.parent {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
 
-nav {
-    background-color: #e9e9e9;
-    overflow: hidden;
-  }
+.div1 { grid-area: 1 / 1 / 6 / 2; }
 
-  nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
+.div2 {
+  grid-area: 1 / 2 / 6 / 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente */
+  justify-content: center; /* Centra verticalmente */
+  margin-left: -9%;
+}
 
-  nav li {
-    float: left;
-  }
-
-  nav li a {
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-
-  nav li a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-
-/* ... tu estilo actual ... */
-
+/* Ajusta la posición del menú a la izquierda y ocupa el alto de la página */
 nav {
   background-color: #e9e9e9;
   overflow: hidden;
   display: flex;
-  justify-content: space-between; /* Distribuye los elementos a ambos lados */
+  flex-direction: column; /* Cambia la dirección a columna para alinear verticalmente */
+  height: 100vh; /* Ocupa el 100% de la altura de la ventana */
+  position: fixed; /* Mantiene el menú fijo en la página */
+  left: 0; /* Posiciona el menú en el lado izquierdo */
+  top: 0; /* Posiciona el menú en la parte superior */
+  width: 250px; /* Ajusta el ancho según tus necesidades */
 }
 
 nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  display: flex;
 }
 
 nav li {
-  margin-right: 10px; /* Ajusta el espaciado entre elementos si es necesario */
+  margin-bottom: 10px; /* Ajusta el espaciado entre elementos si es necesario */
 }
 
 nav li:last-child {
-  margin-right: 0; /* Elimina el margen derecho del último elemento (cierre de sesión) */
+  margin-bottom: 0; /* Elimina el margen inferior del último elemento (cierre de sesión) */
 }
 
 nav li a {
@@ -67,10 +55,40 @@ nav li a {
 nav li a:hover {
   background-color: #ddd;
   color: black;
+  /*channge the pointer*/
+  cursor: pointer;
 }
 
-/* Estilo adicional para la opción de nombre de usuario */
 nav .user-info {
   padding: 14px 16px;
   font-weight: bold;
+}
+
+/* Ajusta el tamaño y la forma de las imágenes dentro de las tarjetas */
+.card {
+  width: 250px; /* Ajusta el ancho según tus necesidades */
+  margin-right: 20px; /* Agrega margen derecho entre las tarjetas */
+}
+
+/* Ajusta el tamaño y la forma de las imágenes dentro de las tarjetas */
+.card-img-square {
+  object-fit: cover;
+  width: 100%;
+  height: 100%; /* Esto hará que la imagen sea cuadrada */
+}
+
+/* Ajusta el espacio entre las tarjetas y permite envolverlas en una nueva línea */
+.row-cards {
+  display: flex;
+  gap: 50px; /* Espacio entre las tarjetas, ajusta según tu preferencia */
+  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en una nueva línea si no caben en el contenedor */
+}
+
+.footer {
+  text-align: center;
+  background-color: #bebebe;
+  padding: 10px;
+  width: 100%;
+  position: relative; /* Cambiado a posición relativa */
+  margin-top: auto; /* Alinea el footer al final del contenedor */
 }
