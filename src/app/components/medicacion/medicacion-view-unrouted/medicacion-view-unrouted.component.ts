@@ -49,6 +49,19 @@ export class MedicacionViewUnroutedComponent implements OnInit {
     );
   }
 
+  eliminarMedicacion(id: number) {
+    this.medicacionService.deleteMedicacion(id).subscribe(
+      data => {
+        console.log('Medicacion borrada', data);
+        this.actualizarListaPacientes();
+      },
+      error => {
+        console.error('Error al borrar la medicacion', error);
+        // Maneja el error según tus necesidades
+      }
+    );
+  }
+
   /* PAGINATION */
 
   nextPage() {

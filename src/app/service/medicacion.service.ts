@@ -28,8 +28,8 @@ export class MedicacionService {
     return this.http.post<IMedicacion>(`${this.apiUrl}/medicacion`, medicacion);
   }
 
-  updateMedicacion(medicacion: IMedicacion): Observable<IMedicacion> {
-    const url = `${this.apiUrl}/medicacion/${medicacion.id}`;
+  updateMedicacion(id:number, medicacion: IMedicacion): Observable<IMedicacion> {
+    const url = `${this.apiUrl}/medicacion/${id}`;
     return this.http.put<IMedicacion>(url, medicacion);
   }
 
