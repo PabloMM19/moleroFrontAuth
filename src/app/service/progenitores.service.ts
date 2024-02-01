@@ -15,6 +15,10 @@ export class ProgenitoresService {
     return this.http.get<IProgenitoresData>(`${this.apiUrl}/progenitor?page=0&size=10`);
   }
 
+  getOneProgenitor(id: number) {
+    return this.http.get<IProgenitores>(`${this.apiUrl}/progenitor/${id}`);
+  }
+
   getDetailProgenitor(id: number): Observable<IProgenitores> {
     return this.http.get<IProgenitores>(`${this.apiUrl}/progenitor/${id}`);
   }

@@ -27,13 +27,26 @@
                     <td id="fila2">{{medida.nombre}}</td>
                     <td id="fila3">
                         <div class="d-flex justify-content-center">
-                            <a class="btn btn-secondary btn-sm mx-1" id="" style="background-color: #a5a5a5;">Ver detalles</a>
+                            <a class="btn btn-secondary btn-sm mx-1" style="background-color: #a5a5a5;" (click)="openModal(staticDetalles)">Ver detalles</a>
                             <a class="btn btn-secondary btn-sm mx-1" style="background-color: #777777;"
                                 routerLink="/medidas/editar/{{medida.id}}">Modificar</a>
                             <a class="btn btn-secondary btn-sm mx-1" style="background-color: rgb(82, 82, 82);"
                                 (click)="eliminarMedida(medida.id)">Eliminar</a>
                         </div>
                     </td>
+                    <!-- Modal -->
+                <ng-template #staticDetalles let-modal>
+                    <div class="modal-header">
+                        <h5 class="modal-title">Detalles de "{{medida.nombre}}"</h5>
+                    </div>
+                    <div class="modal-body">
+                        <img src="../../../../assets/imgMedidas/escalera.png">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary"
+                            (click)="modal.dismiss()">Cerrar</button>
+                    </div>
+                </ng-template>
                 </tr>
             </tbody>
         </table>

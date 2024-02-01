@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { IPacientes } from 'src/app/model/pacientes.model';
 import { PacientesService } from 'src/app/service/pacientes.service';
-//import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-pacientes-detail-unrouted',
@@ -11,11 +11,11 @@ import { PacientesService } from 'src/app/service/pacientes.service';
 })
 export class PacientesDetailUnroutedComponent implements OnInit {
   
-  @Input() id: number = 1;
+  @Input() id: number = 6;
   paciente: IPacientes = {} as IPacientes;
   status: HttpErrorResponse | null = null;
   
-  constructor( private pacientesService: PacientesService ) { }
+  constructor( private pacientesService: PacientesService, private modalService: NgbModal ) { }
 
   ngOnInit() {
     console.log(this.id);
@@ -33,7 +33,10 @@ export class PacientesDetailUnroutedComponent implements OnInit {
       }
 
     })
+  }
 
+  openModal(content: any) {
+    this.modalService.open(content, { centered: true, size: 'lg' });
   }
 
 }

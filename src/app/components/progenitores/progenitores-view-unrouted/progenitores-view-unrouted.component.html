@@ -23,7 +23,7 @@
                         <p class="card-text">ID: {{progenitor.id}}</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Ver</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/progenitores/ver/{{progenitor.id}}">Ver</button>
                                 <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/progenitores/editar/{{progenitor.id}}">Editar</button>
                                 <button type="button" class="btn btn-sm btn-outline-secondary" (click)="eliminarProgenitor(progenitor.id)" >Eliminar</button>
                             </div>

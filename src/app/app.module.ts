@@ -59,6 +59,9 @@ import { PruebasEditRoutedComponent } from './components/pruebas/pruebas-edit-ro
 import { PruebasEditUnroutedComponent } from './components/pruebas/pruebas-edit-unrouted/pruebas-edit-unrouted.component';
 import { PacientesDetailRoutedComponent } from './components/pacientes/pacientes-detail-routed/pacientes-detail-routed.component';
 import { PacientesDetailUnroutedComponent } from './components/pacientes/pacientes-detail-unrouted/pacientes-detail-unrouted.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+//import { ProgenitoresDetailRoutedComponent } from './components/progenitores/progenitores-detail-routed/progenitores-detail-routed.component';
+//import { ProgenitoresDetailUnroutedComponent } from './components/progenitores/progenitores-detail-unrouted/progenitores-detail-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -113,7 +116,7 @@ import { PacientesDetailUnroutedComponent } from './components/pacientes/pacient
     PruebasEditRoutedComponent,
     PruebasEditUnroutedComponent,
     PacientesDetailRoutedComponent,
-    PacientesDetailUnroutedComponent
+    PacientesDetailUnroutedComponent,
   ],
   imports: [
     BrowserModule,
@@ -122,7 +125,8 @@ import { PacientesDetailUnroutedComponent } from './components/pacientes/pacient
     FullCalendarModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

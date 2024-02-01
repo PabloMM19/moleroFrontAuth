@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IDiagnosticos } from 'src/app/model/diagnosticos.model';
 import { DiagnosticosService } from 'src/app/service/diagnosticos.service';
 
@@ -16,10 +17,14 @@ export class DiagnosticoViewUnroutedComponent implements OnInit {
   pageSize = 15;
   pages: number[] = [];
 
-  constructor(private diagnosticosService: DiagnosticosService) { }
+  constructor(private diagnosticosService: DiagnosticosService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.cargaDiagnosticos();
+  }
+
+  openModal(content: any) {
+    this.modalService.open(content, { centered: true, size: 'lg' });
   }
 
   cargaDiagnosticos() {
@@ -35,8 +40,6 @@ export class DiagnosticoViewUnroutedComponent implements OnInit {
       }
     );
   }
-
-  
 
   eliminarDiagnostico(id: number) {
     this.diagnosticosService.deleteDiagnostico(id).subscribe(

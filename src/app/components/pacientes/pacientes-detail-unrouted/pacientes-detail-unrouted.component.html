@@ -3,7 +3,8 @@
   <div class="card mb-3">
     <div class="row g-0">
       <div class="col-md-4">
-        <img src="../../../../assets/imgPacientes/persona{{paciente.id}}.png" class="img-fluid rounded-start" alt="Foto del Paciente" style="width:70%;">
+        <img src="../../../../assets/imgPacientes/persona{{paciente.id}}.png" class="img-fluid rounded-start"
+          alt="Foto del Paciente" style="width:70%;">
       </div>
       <div class="col-md-8">
         <div class="card-body">
@@ -26,49 +27,68 @@
         <div class="card-body">
           <h5 class="card-title">Análisis Clínicos</h5>
           <p class="card-text">Información sobre análisis clínicos.</p>
-          <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#staticAnalisis">Ver Análisis</button>
+          <button type="button" class="btn btn-outline-secondary" (click)="openModal(staticAnalisis)">Ver
+            Análisis</button>
         </div>
       </div>
     </div>
 
-<!-- Modal -->
-<div class="modal fade" id="staticAnalisis" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
+    <!-- Modal -->
+    <ng-template #staticAnalisis let-modal>
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title">Últimos análisis clínicos de {{paciente.papellido}} {{paciente.sapellido}},
+          {{paciente.nombre}}</h5>
       </div>
       <div class="modal-body">
-        ...
+        <p>-Análisis 1: Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum accusantium fuga maiores, sunt
+          aspernatur error, explicabo adipisci minima repellat doloremque laborum culpa nihil quas voluptatibus
+          molestiae nostrum nobis dicta tempore!</p>
+        <p>-Análisis 2: Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum accusantium fuga maiores, sunt
+          aspernatur error, explicabo adipisci minima repellat doloremque laborum culpa nihil quas voluptatibus
+          molestiae nostrum nobis dicta tempore!</p>
+        <p>-Análisis 3: Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum accusantium fuga maiores, sunt
+          aspernatur error, explicabo adipisci minima repellat doloremque laborum culpa nihil quas voluptatibus
+          molestiae nostrum nobis dicta tempore!</p>
+
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
+        <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss()">Cerrar</button>
       </div>
-    </div>
-  </div>
-</div>
-
-
+    </ng-template>
 
     <div class="col">
       <div class="card h-100">
         <div class="card-body">
           <h5 class="card-title">Gráficas de Salud</h5>
           <p class="card-text">Visualización gráfica de datos de salud.</p>
-          <a href="#" class="btn btn-outline-secondary">Ver Gráficas</a>
+          <button type="button" class="btn btn-outline-secondary" (click)="openModal(staticGraficos)">Ver
+            Gráficas</button>
         </div>
       </div>
     </div>
     <!-- Agrega más tarjetas según sea necesario -->
   </div><br>
 
+  <!-- Modal -->
+  <ng-template #staticGraficos let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title">Últimos análisis clínicos de {{paciente.papellido}} {{paciente.sapellido}},
+        {{paciente.nombre}}</h5>
+    </div>
+    <div class="modal-body">
+      <img src="../../../../assets/imgPacientes/graficos/grafico1.png">
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss()">Cerrar</button>
+    </div>
+  </ng-template>
+
   <!-- Información del progenitor -->
   <div class="card mb-3">
     <div class="row g-0">
       <div class="col-md-4">
-        <img src="../../../../assets/imgProgenitores/progenitor16.png" class="img-fluid" alt="Foto del Paciente" style="width:70%;">
+        <img src="../../../../assets/imgProgenitores/progenitor16.png" class="img-fluid" alt="Foto del Paciente"
+          style="width:70%;">
       </div>
       <div class="col-md-4">
         <div class="card-body">
@@ -78,7 +98,8 @@
         </div>
       </div>
       <div class="col-md-4" style="display: flex; align-items: end;">
-        <img src="../../../../assets/imgProgenitores/progenitor11.png" class="img-fluid" alt="Foto del Paciente" style="width:70%;">
+        <img src="../../../../assets/imgProgenitores/progenitor11.png" class="img-fluid" alt="Foto del Paciente"
+          style="width:70%;">
       </div>
     </div>
   </div><br>

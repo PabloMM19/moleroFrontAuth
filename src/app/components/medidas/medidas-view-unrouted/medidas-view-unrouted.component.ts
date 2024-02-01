@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IMedidas } from 'src/app/model/medida.model';
 import { MedidasService } from 'src/app/service/medidas.service';
 
@@ -16,10 +17,14 @@ export class MedidasViewUnroutedComponent implements OnInit {
   pageSize = 15;
   pages: number[] = [];
 
-  constructor(private medidasService: MedidasService) { }
+  constructor(private medidasService: MedidasService,private modalService: NgbModal) { }
 
   ngOnInit() {
     this.cargaMedidas();
+  }
+
+  openModal(content: any) {
+    this.modalService.open(content, { centered: true, size: 'lg' });
   }
 
   cargaMedidas() {

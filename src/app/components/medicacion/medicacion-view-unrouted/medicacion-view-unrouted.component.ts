@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IMedicacion } from 'src/app/model/medicacion.model';
 import { MedicacionService } from 'src/app/service/medicacion.service';
 
@@ -16,10 +17,14 @@ export class MedicacionViewUnroutedComponent implements OnInit {
   pageSize = 10;
   pages: number[] = [];
 
-  constructor( private medicacionService: MedicacionService ) { }
+  constructor( private medicacionService: MedicacionService, private modalService: NgbModal ) { }
 
   ngOnInit() {
     this.cargaMedicacion();
+  }
+
+  openModal(content: any) {
+    this.modalService.open(content, { centered: true, size: 'lg' });
   }
 
   cargaMedicacion() {

@@ -7,36 +7,90 @@
                 style="white-space: nowrap; margin-left: 4.5%;">Añadir diagnóstico</button>
 
             <div class="input-group" style="margin-right: -13.8%;">
-                <input type="text" class="form-control" placeholder="Buscar diagnóstico" aria-label="Recipient's username"
-                    aria-describedby="button-addon2">
+                <input type="text" class="form-control" placeholder="Buscar diagnóstico"
+                    aria-label="Recipient's username" aria-describedby="button-addon2">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
             </div>
         </div>
     </div>
-        <table class="table table-hover table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Descripción</th>
-                    <th scope="col">Acciones</th>
-                </tr>
-            </thead>
-            <tbody class="table-group-divider">
-                <tr *ngFor="let diagnostico of diagnosticosData">
-                    <td id="fila1">{{diagnostico.nombre}}</td>
-                    <td id="fila2">{{diagnostico.descripcion}}</td>
-                    <td id="fila3">
-                        <div class="d-flex justify-content-center">
-                            <a class="btn btn-secondary btn-sm mx-1" id="" style="background-color: #a5a5a5;">Ver detalles</a>
-                            <a class="btn btn-secondary btn-sm mx-1" style="background-color: #777777;"
-                                routerLink="/diagnosticos/editar/{{diagnostico.id}}">Modificar</a>
-                            <a class="btn btn-secondary btn-sm mx-1" style="background-color: rgb(82, 82, 82);"
-                                (click)="eliminarDiagnostico(diagnostico.id)">Eliminar</a>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr *ngFor="let diagnostico of diagnosticosData">
+                <td id="fila1">{{diagnostico.nombre}}</td>
+                <td id="fila2">{{diagnostico.descripcion}}</td>
+                <td id="fila3">
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-secondary btn-sm mx-1" style="background-color: #a5a5a5;"
+                            (click)="openModal(staticDetalles)">Ver detalles</button>
+                        <a class="btn btn-secondary btn-sm mx-1" style="background-color: #777777;"
+                            routerLink="/diagnosticos/editar/{{diagnostico.id}}">Modificar</a>
+                        <a class="btn btn-secondary btn-sm mx-1" style="background-color: rgb(82, 82, 82);"
+                            (click)="eliminarDiagnostico(diagnostico.id)">Eliminar</a>
+                    </div>
+                </td>
+                <!-- Modal -->
+                <ng-template #staticDetalles let-modal>
+                    <div class="modal-header">
+                        <h5 class="modal-title">Detalles de "{{diagnostico.nombre}}"</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            El dolor de cabeza, también conocido como cefalea, puede tener diversas causas. Algunas de
+                            las razones más comunes incluyen:
+                        <ol>
+                            <li>Tensión muscular: La tensión en los músculos del cuello y la cabeza puede causar dolores
+                                de cabeza tensionales.</li>
+
+                            <li>Migrañas: Las migrañas son dolores de cabeza intensos y pulsátiles que a menudo están
+                                acompañados de otros síntomas, como náuseas, sensibilidad a la luz y al sonido.</li>
+
+                            <li>Problemas de visión: La fatiga visual, la presión ocular y otros problemas visuales
+                                pueden desencadenar dolores de cabeza.</li>
+
+                            <li>Estrés: El estrés emocional o físico puede desencadenar dolores de cabeza.</li>
+
+                            <li>Desencadenantes alimentarios: Algunas personas experimentan dolores de cabeza debido a
+                                ciertos alimentos o aditivos alimentarios.</li>
+
+                            <li>Cambios hormonales: Especialmente en mujeres, las fluctuaciones hormonales, como las que
+                                ocurren durante el ciclo menstrual, el embarazo o la menopausia, pueden desencadenar
+                                dolores de cabeza.</li>
+
+                            <li>Consumo de cafeína: Tanto la falta de cafeína en personas acostumbradas como el exceso
+                                de consumo pueden causar dolores de cabeza.</li>
+
+                            <li>Cambios en el clima: Algunas personas son sensibles a los cambios de clima y pueden
+                                experimentar dolores de cabeza debido a estas variaciones.</li>
+
+                            <li>Sinusitis: La inflamación de los senos paranasales puede causar dolor facial y de
+                                cabeza.</li>
+
+                            <li>Problemas de sueño: La falta de sueño o patrones de sueño irregulares pueden contribuir
+                                a dolores de cabeza.</li>
+
+                            <li>Consumo de alcohol: El exceso de alcohol o la resaca pueden causar dolores de cabeza.
+                            </li>
+                        </ol>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary"
+                            (click)="modal.dismiss()">Cerrar</button>
+                    </div>
+                </ng-template>
+            </tr>
+        </tbody>
+    </table>
+
+
+
     <!-- Paginación -->
     <div class="pagination">
         <button class="btn btn-outline-secondary" (click)="goToFirstPage()"><<</button>&nbsp;

@@ -53,6 +53,7 @@ const routes: Routes = [
     { path: 'pruebas/nuevo', component: PruebasNewRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
     { path: 'pruebas/editar/:id', component: PruebasEditRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
     { path: 'pacientes/ver/:id', component: PacientesDetailRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
+    //{ path: 'progenitores/ver/:id', component: PacientesDetailRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
     
   ];
   
