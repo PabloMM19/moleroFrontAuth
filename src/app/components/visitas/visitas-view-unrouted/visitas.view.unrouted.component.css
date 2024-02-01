@@ -47,3 +47,13 @@ select:focus {
   box-shadow: 0 0 0 0.25rem rgba(95, 95, 95, 0.1);
   /* Agrega un efecto de sombra al enfocar */
 }
+
+.tarjetas > .card {
+  height: 116.5px;
+}
+
+.tarjetas > .card > .card-body > h4 {
+  margin: 0;
+  line-height: 3.5; /* Ajusta según sea necesario */
+  text-align: center;
+}

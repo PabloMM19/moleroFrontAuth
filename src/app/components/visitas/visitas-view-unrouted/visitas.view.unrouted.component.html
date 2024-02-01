@@ -7,48 +7,111 @@
                 style="white-space: nowrap; margin-left: 4.5%;">Añadir visita</button>
 
             <div class="input-group" style="margin-right: -13.8%;">
-                <input type="text" class="form-control" placeholder="Buscar visita"
-                    aria-describedby="button-addon2">
+                <input type="text" class="form-control" placeholder="Buscar visita" aria-describedby="button-addon2">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
             </div>
         </div>
     </div>
-        <table class="table table-hover table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Fecha</th>
-                    <th scope="col">Comentario</th>
-                    <th scope="col">Acciones</th>
-                </tr>
-            </thead>
-            <tbody class="table-group-divider">
-                <tr *ngFor="let visita of visitasData">
-                    <td id="fila1">{{visita.id}}</td>
-                    <td id="fila2">{{visita.fecha}}</td>
-                    <td id="fila2">{{visita.comentario}}</td>
-                    <td id="fila3">
-                        <div class="d-flex justify-content-center">
-                            <a class="btn btn-secondary btn-sm mx-1" id="" style="background-color: #a5a5a5;">Ver detalles</a>
-                            <a class="btn btn-secondary btn-sm mx-1" style="background-color: #777777;"
-                                routerLink="/visitas/editar/{{visita.id}}">Modificar</a>
-                            <a class="btn btn-secondary btn-sm mx-1" style="background-color: rgb(82, 82, 82);"
-                                (click)="eliminarVisita(visita.id)">Eliminar</a>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    <!-- Paginación -->
-    <div class="pagination">
-        <button class="btn btn-outline-secondary" (click)="goToFirstPage()"><<</button>&nbsp;
-        <button class="btn btn-outline-secondary" (click)="prevPage()"><</button>&nbsp;
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Comentario</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr *ngFor="let visita of visitasData">
+                <td id="fila1">{{visita.id}}</td>
+                <td id="fila2">{{visita.fecha}}</td>
+                <td id="fila2">{{visita.comentario}}</td>
+                <td id="fila3">
+                    <div class="d-flex justify-content-center">
+                        <a class="btn btn-secondary btn-sm mx-1" id="" style="background-color: #a5a5a5;"
+                            (click)="openModal(staticDetalles)">Ver detalles</a>
+                        <a class="btn btn-secondary btn-sm mx-1" style="background-color: #777777;"
+                            routerLink="/visitas/editar/{{visita.id}}">Modificar</a>
+                        <a class="btn btn-secondary btn-sm mx-1" style="background-color: rgb(82, 82, 82);"
+                            (click)="eliminarVisita(visita.id)">Eliminar</a>
+                    </div>
+                </td>
+                <!-- Modal -->
+                <ng-template #staticDetalles let-modal>
+                    <div class="modal-header">
+                        <h5 class="modal-title">Detalles de la visita del día "{{visita.fecha}}"</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div style="text-align: justify;">
+                        En una consulta médica diaria, un paciente se presenta con síntomas leves de fatiga. Tras
+                        revisar el historial y realizar pruebas de sangre y radiografías, se detecta una respuesta
+                        inflamatoria. Se prescribe medicación y se considera rehabilitación física según sea necesario.
+                        El paciente recibe orientación sobre el tratamiento y se programa una consulta de seguimiento
+                        para evaluar la progresión. </div><br>
+                        <div class="row">
+                            <!-- Columna 1 -->
+                            <div class="col-md-8 tarjetas">
+                                
+                                <!-- Tarjeta 1 -->
+                                <div class="card mb-3">
+                                    <!-- <img src="../../../../assets/imgMedicaciones/medicacion63.png" class="card-img-top" alt="Imagen 1"> -->
+                                    <div class="card-body">
+                                        <h4>Ver el diagnóstico</h4>
+                                    </div>
+                                </div>
+                    
+                                <!-- Tarjeta 2 -->
+                                <div class="card" style="margin-top: 4%;">
+                                    <div class="card-body">
+                                        <h4>Ver la medicaión asignada</h4>
+                                    </div>
+                                </div>
 
-        <select style="text-align: center;" [(ngModel)]="currentPage" class="form-control" (change)="currentPage !== null ? goToPage(currentPage) : null">
-          <option *ngFor="let page of pages" [value]="page" [selected]="page === currentPage">{{ page + 1 }}</option>
-        </select>&nbsp;
-
-        <button class="btn btn-outline-secondary" (click)="nextPage()">></button>&nbsp;
-        <button class="btn btn-outline-secondary" (click)="goToLastPage()">>></button>
+                                <!-- Tarjeta 3 -->
+                                <div class="card" style="margin-top: 4%;">
+                                    <div class="card-body">
+                                        <h4>Ver las pruebas realizadas</h4>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <!-- Columna 2 -->
+<div class="col-md-4">
+    <!-- Tarjeta 3 -->
+    <div class="card mb-3">
+        <div class="card-header" style="background-color: rgba(0, 0, 0, 0);">
+            Paciente
+                                                </div>
+        <img src="../../../../assets/imgPacientes/persona10.png" class="img-fluid" alt="Imagen 3">
+        <div class="card-body">
+            <p class="card-text">Papellido Sapellido, Nombre</p>
+            <p class="card-text">CODIGO</p>
+        </div>
     </div>
+</div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary"
+                            (click)="modal.dismiss()">Cerrar</button>
+                    </div>
+                </ng-template>
+
+            </tr>
+        </tbody>
+    </table>
+<!-- Paginación -->
+<div class="pagination">
+    <button class="btn btn-outline-secondary" (click)="goToFirstPage()"><<</button>&nbsp;
+    <button class="btn btn-outline-secondary" (click)="prevPage()"><</button>&nbsp;
+
+    <select style="text-align: center;" [(ngModel)]="currentPage" class="form-control" (change)="currentPage !== null ? goToPage(currentPage) : null">
+      <option *ngFor="let page of pages" [value]="page" [selected]="page === currentPage">{{ page + 1 }}</option>
+    </select>&nbsp;
+
+    <button class="btn btn-outline-secondary" (click)="nextPage()">></button>&nbsp;
+    <button class="btn btn-outline-secondary" (click)="goToLastPage()">>></button>
+</div>
+
 </div>

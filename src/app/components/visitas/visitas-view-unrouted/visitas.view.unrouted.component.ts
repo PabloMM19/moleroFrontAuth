@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IVisitas } from 'src/app/model/visitas.model';
 import { VisitasService } from 'src/app/service/visitas.service';
 
@@ -16,10 +17,14 @@ export class VisitasViewUnroutedComponent {
   pageSize = 15;
   pages: number[] = [];
 
-  constructor(private visitasService: VisitasService) { }
+  constructor(private visitasService: VisitasService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.cargaVisitas();
+  }
+
+  openModal(content: any) {
+    this.modalService.open(content, { centered: true, size: 'lg' });
   }
 
   cargaVisitas() {

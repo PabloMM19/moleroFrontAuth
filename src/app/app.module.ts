@@ -60,8 +60,8 @@ import { PruebasEditUnroutedComponent } from './components/pruebas/pruebas-edit-
 import { PacientesDetailRoutedComponent } from './components/pacientes/pacientes-detail-routed/pacientes-detail-routed.component';
 import { PacientesDetailUnroutedComponent } from './components/pacientes/pacientes-detail-unrouted/pacientes-detail-unrouted.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-//import { ProgenitoresDetailRoutedComponent } from './components/progenitores/progenitores-detail-routed/progenitores-detail-routed.component';
-//import { ProgenitoresDetailUnroutedComponent } from './components/progenitores/progenitores-detail-unrouted/progenitores-detail-unrouted.component';
+import { ProgenitoresDetailRoutedComponent } from './components/progenitores/progenitores-detail-routed/progenitores-detail-routed.component';
+import { ProgenitoresDetailUnroutedComponent } from './components/progenitores/progenitores-detail-unrouted/progenitores-detail-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -117,6 +117,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PruebasEditUnroutedComponent,
     PacientesDetailRoutedComponent,
     PacientesDetailUnroutedComponent,
+    ProgenitoresDetailRoutedComponent,
+    ProgenitoresDetailUnroutedComponent
   ],
   imports: [
     BrowserModule,

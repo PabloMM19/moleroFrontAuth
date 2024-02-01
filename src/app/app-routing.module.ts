@@ -25,6 +25,7 @@ import { VisitasNewRoutedComponent } from "./components/visitas/visitas-new-rout
 import { PruebasNewRoutedComponent } from "./components/pruebas/pruebas-new-routed/pruebas-new-routed.component";
 import { PruebasEditRoutedComponent } from "./components/pruebas/pruebas-edit-routed/pruebas-edit-routed.component";
 import { PacientesDetailRoutedComponent } from "./components/pacientes/pacientes-detail-routed/pacientes-detail-routed.component";
+import { ProgenitoresDetailRoutedComponent } from "./components/progenitores/progenitores-detail-routed/progenitores-detail-routed.component";
 
 const routes: Routes = [
     { path: '', redirectTo: 'pacientes', pathMatch: 'full' }, // Redirigir la ruta vacía a '/home'
@@ -53,7 +54,7 @@ const routes: Routes = [
     { path: 'pruebas/nuevo', component: PruebasNewRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
     { path: 'pruebas/editar/:id', component: PruebasEditRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
     { path: 'pacientes/ver/:id', component: PacientesDetailRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
-    //{ path: 'progenitores/ver/:id', component: PacientesDetailRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
+    { path: 'progenitores/ver/:id', component: ProgenitoresDetailRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
     
   ];
   
