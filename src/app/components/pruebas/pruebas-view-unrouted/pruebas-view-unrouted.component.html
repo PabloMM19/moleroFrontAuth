@@ -1,41 +1,54 @@
-<div class="container-fluid full-height-container d-flex flex-column justify-content-center align-items-center">
-  <h1 class="titulo mb-4 text-center">Vista de las pruebas</h1>
+<div class="container-fluid full-height-container d-flex flex-column justify-content-center align-items-center"
+    style="margin-top: 1%;">
+    <!-- Barra de búsqueda y botón "Añadir paciente" -->
+    <div class="col-md-8">
+        <div class="d-flex align-items-center mb-3">
+            <button type="button" class="btn btn-outline-secondary me-4" routerLink="/pruebas/nuevo"
+                style="white-space: nowrap; margin-left: 4.5%;">Añadir prueba</button>
 
-  <div class="table-responsive">
-      <table class="table table-hover table-bordered">
-          <thead>
-              <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Descripción</th>
-                  <th scope="col">Acciones</th>
-              </tr>
-          </thead>
-          <tbody class="table-group-divider">
-              <tr *ngFor="let prueba of pruebasData">
-                  <td>{{prueba.id}}</td>
-                  <td>{{prueba.nombre}}</td>
-                  <td>{{prueba.descripcion}}</td>
-                  <td>
-                      <div class="d-flex justify-content-center">
-                          <a class="btn btn-primary btn-sm mx-1">Ver detalles</a>
-                          <a class="btn btn-warning btn-sm mx-1" routerLink="/pruebas/editar/{{prueba.id}}">Modificar</a>
-                          <a class="btn btn-danger btn-sm mx-1" (click)="eliminarPrueba(prueba.id)">Eliminar</a>
-                      </div>
-                  </td>
-              </tr>
-          </tbody>
-      </table>
-      <div class="pagination">
-        <button class="btn btn-primary" (click)="goToFirstPage()"><<</button>&nbsp;
-        <button class="btn btn-primary" (click)="prevPage()"><</button>&nbsp;
-      
+            <div class="input-group" style="margin-right: -13.8%;">
+                <input type="text" class="form-control" placeholder="Buscar prueba"
+                    aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+            </div>
+        </div>
+    </div>
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Comentario</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr *ngFor="let prueba of pruebasData">
+                    <td id="fila1">{{prueba.id}}</td>
+                    <td id="fila2">{{prueba.nombre}}</td>
+                    <td id="fila2">{{prueba.descripcion}}</td>
+                    <td id="fila3">
+                        <div class="d-flex justify-content-center">
+                            <a class="btn btn-secondary btn-sm mx-1" id="" style="background-color: #a5a5a5;">Ver detalles</a>
+                            <a class="btn btn-secondary btn-sm mx-1" style="background-color: #777777;"
+                                routerLink="/pruebas/editar/{{prueba.id}}">Modificar</a>
+                            <a class="btn btn-secondary btn-sm mx-1" style="background-color: rgb(82, 82, 82);"
+                                (click)="eliminarPrueba(prueba.id)">Eliminar</a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    <!-- Paginación -->
+    <div class="pagination">
+        <button class="btn btn-outline-secondary" (click)="goToFirstPage()"><<</button>&nbsp;
+        <button class="btn btn-outline-secondary" (click)="prevPage()"><</button>&nbsp;
+
         <select style="text-align: center;" [(ngModel)]="currentPage" class="form-control" (change)="currentPage !== null ? goToPage(currentPage) : null">
           <option *ngFor="let page of pages" [value]="page" [selected]="page === currentPage">{{ page + 1 }}</option>
         </select>&nbsp;
-      
-        <button class="btn btn-primary" (click)="nextPage()">></button>&nbsp;
-        <button class="btn btn-primary" (click)="goToLastPage()">>></button>
-      </div>
-  </div>
+
+        <button class="btn btn-outline-secondary" (click)="nextPage()">></button>&nbsp;
+        <button class="btn btn-outline-secondary" (click)="goToLastPage()">>></button>
+    </div>
 </div>

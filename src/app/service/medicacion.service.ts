@@ -12,7 +12,7 @@ export class MedicacionService {
   constructor(private http: HttpClient) { }
 
   getMedicacionData() {
-    return this.http.get<IMedicacionData>(`${this.apiUrl}/medicacion?page=0&size=10`);
+    return this.http.get<IMedicacionData>(`${this.apiUrl}/medicacion?size=10&page=0`);
   }
 
   getDetailMedicacion(id: number): Observable<IMedicacion> {

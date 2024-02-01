@@ -12,7 +12,7 @@ export class DiagnosticosService {
   constructor(private http: HttpClient) { }
 
   getDiagnosticoData() {
-    return this.http.get<IDiagnosticosData>(`${this.apiUrl}/diagnostico?page=0&size=10`);
+    return this.http.get<IDiagnosticosData>(`${this.apiUrl}/diagnostico?size=15&page=0`);
   }
 
   getDetailDiagnostico(id: number): Observable<IDiagnosticos> {

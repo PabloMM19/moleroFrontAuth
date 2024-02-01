@@ -17,13 +17,13 @@
         <div class="row row-cards">
             <div *ngFor="let paciente of pacientesData" class="col-md-2">
                 <div class="card mb-4 box-shadow">
-                    <img class="card-img-top card-img-square" src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="Card image cap">
+                    <img class="card-img-top card-img-square" src="../../../../assets/imgPacientes/persona{{paciente.id}}.png" alt="Card image cap">
                     <div class="card-body">
                         <p class="card-text">{{paciente.codigo}}</p>
                         <p class="card-text">{{paciente.papellido}} {{paciente.sapellido}}, {{paciente.nombre}}</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Ver</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/pacientes/ver/{{paciente.id}}">Ver</button>
                                 <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/pacientes/editar/{{paciente.id}}">Editar</button>
                                 <button type="button" class="btn btn-sm btn-outline-secondary" (click)="eliminarPaciente(paciente.id)" >Eliminar</button>
                             </div>

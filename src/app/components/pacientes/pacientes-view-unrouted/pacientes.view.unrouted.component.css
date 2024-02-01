@@ -124,3 +124,15 @@ nav .user-info {
   box-shadow: 0 0 0 0.25rem rgba(95, 95, 95, 0.1);
   /* Agrega un efecto de sombra al enfocar */
 }
+
+select:focus {
+  border-color: rgb(155, 155, 155);
+  box-shadow: 0 0 0 0.25rem rgba(95, 95, 95, 0.1);
+}
+
+.btn:hover {
+  background-color: #b9b9b9;
+  color: black;
+  /*channge the pointer*/
+  cursor: pointer;
+}

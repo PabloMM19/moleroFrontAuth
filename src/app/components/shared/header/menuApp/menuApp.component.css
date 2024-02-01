@@ -92,3 +92,11 @@ nav .user-info {
   position: relative; /* Cambiado a posición relativa */
   margin-top: auto; /* Alinea el footer al final del contenedor */
 }
+
+.icon-container svg{
+  display: none; /* Oculta los iconos por defecto */
+}
+
+.icon-container:hover svg {
+  display: inline; /* Muestra los iconos cuando haces hover sobre el contenedor */
+}

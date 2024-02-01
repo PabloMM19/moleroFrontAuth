@@ -24,9 +24,10 @@ import { VisitasEditRoutedComponent } from "./components/visitas/visitas-edit-ro
 import { VisitasNewRoutedComponent } from "./components/visitas/visitas-new-routed/visitas-new-routed.component";
 import { PruebasNewRoutedComponent } from "./components/pruebas/pruebas-new-routed/pruebas-new-routed.component";
 import { PruebasEditRoutedComponent } from "./components/pruebas/pruebas-edit-routed/pruebas-edit-routed.component";
+import { PacientesDetailRoutedComponent } from "./components/pacientes/pacientes-detail-routed/pacientes-detail-routed.component";
 
 const routes: Routes = [
-    { path: '', redirectTo: 'home', pathMatch: 'full' }, // Redirigir la ruta vacía a '/home'
+    { path: '', redirectTo: 'pacientes', pathMatch: 'full' }, // Redirigir la ruta vacía a '/home'
     { path: 'home', component: AdminHomeComponent }, // Ruta para cargar AdminHomeComponent
     { path: 'pacientes', component: PacientesViewRoutedComponent }, // Ruta para cargar PacientesViewRouted
     { path: 'visitas', component: VisitasViewRoutedComponent }, // Ruta para cargar VisitasViewRouted
@@ -51,6 +52,7 @@ const routes: Routes = [
     { path: 'visitas/editar/:id', component: VisitasEditRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
     { path: 'pruebas/nuevo', component: PruebasNewRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
     { path: 'pruebas/editar/:id', component: PruebasEditRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
+    { path: 'pacientes/ver/:id', component: PacientesDetailRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
     
   ];
   

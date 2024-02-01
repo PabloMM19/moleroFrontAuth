@@ -1,45 +1,49 @@
-<div class="container-fluid full-height-container d-flex flex-column justify-content-center align-items-center">
-  <h1 class="titulo mb-4 text-center">Vista de los progenitores</h1>
+<div class="container-fluid full-height-container d-flex flex-column justify-content-center align-items-center" style="margin-top: 1%;">
 
-  <div class="table-responsive">
-      <table class="table table-hover table-bordered">
-          <thead>
-              <tr>
-                  <th scope="col">Foto</th>
-                  <th scope="col">DNI</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Rol</th>
-                  <th scope="col">Paciente</th>
-                  <th scope="col">Acciones</th>
-              </tr>
-          </thead>
-          <tbody class="table-group-divider">
-              <tr *ngFor="let progenitor of progenitoresData">
-                  <td><img src="https://mdbootstrap.com/img/new/avatars/8.jpg" style="width: 70px; border-radius: 50%;"></td>
-                  <td>{{progenitor.dni}}</td>
-                  <td>{{progenitor.papellido}} {{progenitor.sapellido}}, {{progenitor.nombre}}</td>
-                  <td>{{progenitor.rol}}</td>
-                  <td>{{progenitor.paciente_id}}</td>
-                  <td>
-                      <div class="d-flex justify-content-center">
-                          <a class="btn btn-primary btn-sm mx-1">Ver detalles</a>
-                          <a class="btn btn-warning btn-sm mx-1" routerLink="/progenitores/editar/{{progenitor.id}}">Modificar</a>
-                          <a class="btn btn-danger btn-sm mx-1" (click)="eliminarProgenitor(progenitor.id)" >Eliminar</a>
-                      </div>
-                  </td>
-              </tr>
-          </tbody>
-      </table>
-      <div class="pagination">
-        <button class="btn btn-primary" (click)="goToFirstPage()"><<</button>&nbsp;
-        <button class="btn btn-primary" (click)="prevPage()"><</button>&nbsp;
-      
+    <!-- Barra de búsqueda y botón "Añadir paciente" -->
+    <div class="col-md-8">
+        <div class="d-flex align-items-center mb-3">
+            <button type="button" class="btn btn-outline-secondary me-4" routerLink="/progenitores/nuevo" style="white-space: nowrap; margin-left: 4.5%;">Añadir progenitor</button>
+            
+            <div class="input-group" style="margin-right: -13.8%;">
+                <input type="text" class="form-control" placeholder="Buscar progenitor" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tarjetas de pacientes -->
+    <div class="container" style="margin-left: 19%;">
+        <div class="row row-cards">
+            <div *ngFor="let progenitor of progenitoresData" class="col-md-2">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top card-img-square" src="../../../../assets/imgProgenitores/progenitor{{progenitor.id}}.png" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">{{progenitor.papellido}} {{progenitor.sapellido}}, {{progenitor.nombre}}</p>
+                        <p class="card-text">ID: {{progenitor.id}}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Ver</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/progenitores/editar/{{progenitor.id}}">Editar</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary" (click)="eliminarProgenitor(progenitor.id)" >Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paginación -->
+    <div class="pagination">
+        <button class="btn btn-outline-secondary" (click)="goToFirstPage()"><<</button>&nbsp;
+        <button class="btn btn-outline-secondary" (click)="prevPage()"><</button>&nbsp;
+
         <select style="text-align: center;" [(ngModel)]="currentPage" class="form-control" (change)="currentPage !== null ? goToPage(currentPage) : null">
           <option *ngFor="let page of pages" [value]="page" [selected]="page === currentPage">{{ page + 1 }}</option>
         </select>&nbsp;
-      
-        <button class="btn btn-primary" (click)="nextPage()">></button>&nbsp;
-        <button class="btn btn-primary" (click)="goToLastPage()">>></button>
-      </div>
-  </div>
+
+        <button class="btn btn-outline-secondary" (click)="nextPage()">></button>&nbsp;
+        <button class="btn btn-outline-secondary" (click)="goToLastPage()">>></button>
+    </div>
 </div>

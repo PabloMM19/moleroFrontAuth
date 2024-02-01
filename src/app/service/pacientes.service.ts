@@ -16,6 +16,10 @@ export class PacientesService {
     return this.http.get<IPacientesData>(`${this.apiUrl}/paciente?page=0&size=10`);
   }
 
+  getOnePaciente(id: number) {
+    return this.http.get<IPacientes>(`${this.apiUrl}/paciente/${id}`);
+  }
+
   getDetailPaciente(id: number): Observable<IPacientes> {
     return this.http.get<IPacientes>(`${this.apiUrl}/paciente/${id}`);
   }

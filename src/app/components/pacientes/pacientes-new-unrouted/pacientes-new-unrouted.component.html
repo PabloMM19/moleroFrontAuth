@@ -1,3 +1,5 @@
+<h1 class="text-center">Nuevo Paciente</h1>
+
 <form (submit)="onSubmit()" style="margin-bottom: 5%;">
   <div class="mb-3">
     <label for="id" class="form-label">id</label>
@@ -30,6 +32,6 @@
   <div>
     <label for="seguromedico_id" class="form-label">seguromedico_id</label>
     <input type="text" class="form-control" id="seguromedico_id" [(ngModel)]="paciente.seguromedico_id" name="seguromedico_id" required>
-  </div>
-  <button type="submit" class="btn btn-primary">Enviar</button>
+  </div><br>
+  <button type="submit" class="btn btn-outline-secondary">Enviar</button>
 </form>

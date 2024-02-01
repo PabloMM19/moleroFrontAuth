@@ -1,41 +1,48 @@
-<div class="container-fluid full-height-container d-flex flex-column justify-content-center align-items-center">
-  <h1 class="titulo mb-4 text-center">Vista de las medicaciones</h1>
+<div class="container-fluid full-height-container d-flex flex-column justify-content-center align-items-center" style="margin-top: 1%;">
 
-  <div class="table-responsive">
-      <table class="table table-hover table-bordered">
-          <thead>
-              <tr>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Descripción</th>
-                  <th scope="col">Medida</th>
-                  <th scope="col">Acciones</th>
-              </tr>
-          </thead>
-          <tbody class="table-group-divider">
-              <tr *ngFor="let medicacion of medicacionData">
-                  <td>{{medicacion.nombre}}</td>
-                  <td>{{medicacion.descripcion}}</td>
-                  <td>{{medicacion.medida_id}}</td>
-                  <td>
-                      <div class="d-flex justify-content-center">
-                          <a class="btn btn-primary btn-sm mx-1">Ver detalles</a>
-                          <a class="btn btn-warning btn-sm mx-1" routerLink="/medicaciones/editar/{{medicacion.id}}">Modificar</a>
-                          <a class="btn btn-danger btn-sm mx-1" (click)="eliminarMedicacion(medicacion.id)">Eliminar</a>
-                      </div>
-                  </td>
-              </tr>
-          </tbody>
-      </table>
-      <div class="pagination">
-        <button class="btn btn-primary" (click)="goToFirstPage()"><<</button>&nbsp;
-        <button class="btn btn-primary" (click)="prevPage()"><</button>&nbsp;
-      
+    <!-- Barra de búsqueda y botón "Añadir paciente" -->
+    <div class="col-md-8">
+        <div class="d-flex align-items-center mb-3">
+            <button type="button" class="btn btn-outline-secondary me-4" routerLink="/medicaciones/nuevo" style="white-space: nowrap; margin-left: 4.5%;">Añadir medicación</button>
+            
+            <div class="input-group" style="margin-right: -13.8%;">
+                <input type="text" class="form-control" placeholder="Buscar medicación" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tarjetas de pacientes -->
+    <div class="container" style="margin-left: 19%;">
+        <div class="row row-cards">
+            <div *ngFor="let medicacion of medicacionData" class="col-md-2">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top card-img-square" src="../../../../assets/imgMedicaciones/medicacion{{medicacion.id}}.png" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">{{medicacion.nombre}}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Ver</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/medicaciones/editar/{{medicacion.id}}">Editar</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary" (click)="eliminarMedicacion(medicacion.id)" >Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paginación -->
+    <div class="pagination">
+        <button class="btn btn-outline-secondary" (click)="goToFirstPage()"><<</button>&nbsp;
+        <button class="btn btn-outline-secondary" (click)="prevPage()"><</button>&nbsp;
+
         <select style="text-align: center;" [(ngModel)]="currentPage" class="form-control" (change)="currentPage !== null ? goToPage(currentPage) : null">
           <option *ngFor="let page of pages" [value]="page" [selected]="page === currentPage">{{ page + 1 }}</option>
         </select>&nbsp;
-      
-        <button class="btn btn-primary" (click)="nextPage()">></button>&nbsp;
-        <button class="btn btn-primary" (click)="goToLastPage()">>></button>
-      </div>
-  </div>
+
+        <button class="btn btn-outline-secondary" (click)="nextPage()">></button>&nbsp;
+        <button class="btn btn-outline-secondary" (click)="goToLastPage()">>></button>
+    </div>
 </div>

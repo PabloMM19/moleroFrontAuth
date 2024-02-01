@@ -1,0 +1,85 @@
+<div class="container mt-5 div2">
+  <!-- Información del paciente -->
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="../../../../assets/imgPacientes/persona{{paciente.id}}.png" class="img-fluid rounded-start" alt="Foto del Paciente" style="width:70%;">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{paciente.papellido}} {{paciente.sapellido}}, {{paciente.nombre}}</h5><br>
+          <p class="card-text"><strong>Código:</strong> {{paciente.codigo}}</p>
+          <!-- Agrega más detalles según tus necesidades -->
+          <p class="card-text"><strong>Edad:</strong> 10 años / (15/01/2014)</p>
+          <p class="card-text"><strong>Enfermedad:</strong> Diabetes tipo 1</p>
+          <p class="card-text"><strong>Seguro médico:</strong> AseguraVida</p>
+          <!-- ... (otros detalles) ... -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enlaces a análisis, gráficas, etc. -->
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Análisis Clínicos</h5>
+          <p class="card-text">Información sobre análisis clínicos.</p>
+          <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#staticAnalisis">Ver Análisis</button>
+        </div>
+      </div>
+    </div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticAnalisis" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Gráficas de Salud</h5>
+          <p class="card-text">Visualización gráfica de datos de salud.</p>
+          <a href="#" class="btn btn-outline-secondary">Ver Gráficas</a>
+        </div>
+      </div>
+    </div>
+    <!-- Agrega más tarjetas según sea necesario -->
+  </div><br>
+
+  <!-- Información del progenitor -->
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="../../../../assets/imgProgenitores/progenitor16.png" class="img-fluid" alt="Foto del Paciente" style="width:70%;">
+      </div>
+      <div class="col-md-4">
+        <div class="card-body">
+          <h5 class="card-title">Progenitores</h5><br>
+          <p class="card-text"><strong>Nombre del padre:</strong> Sergio Fernández Ramiro</p>
+          <p class="card-text"><strong>Nombre de la madre:</strong> Marta Castillo López</p>
+        </div>
+      </div>
+      <div class="col-md-4" style="display: flex; align-items: end;">
+        <img src="../../../../assets/imgProgenitores/progenitor11.png" class="img-fluid" alt="Foto del Paciente" style="width:70%;">
+      </div>
+    </div>
+  </div><br>
+</div>

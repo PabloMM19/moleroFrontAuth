@@ -1,3 +1,4 @@
+<h1 class="text-center">Nuevo Diagnóstico</h1>
 <form (submit)="onSubmit()" style="margin-bottom: 5%;">
   <div class="mb-3">
     <label for="id" class="form-label">id</label>
@@ -10,6 +11,6 @@
   <div class="mb-3">
     <label for="descripcion" class="form-label">descripcion</label>
     <input type="text" class="form-control" id="descripcion" [(ngModel)]="diagnostico.descripcion" name="descripcion" required>
-  </div>
-  <button type="submit" class="btn btn-primary">Enviar</button>
+  </div><br>
+  <button type="submit" class="btn btn-outline-secondary">Enviar</button>
 </form>

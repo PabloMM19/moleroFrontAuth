@@ -4,11 +4,6 @@
   margin-bottom: 1%;
 }
 
-.input-group input.form-control:focus {
-  border-color: rgb(155, 155, 155);
-  box-shadow: 0 0 0 0.25rem rgba(95, 95, 95, 0.1);
-}
-
 .table {
   margin-left: 12.5%;
   width: 1330px; /* Establecemos el ancho a automático para permitir que la tabla se expanda según sea necesario */
@@ -39,4 +34,16 @@
   color: black;
   /*channge the pointer*/
   cursor: pointer;
+}
+
+select:focus {
+  border-color: rgb(155, 155, 155);
+  box-shadow: 0 0 0 0.25rem rgba(95, 95, 95, 0.1);
+}
+
+/* Agrega estilos para el estado :focus de la barra de búsqueda */
+.input-group input.form-control:focus {
+  border-color: rgb(155, 155, 155);
+  box-shadow: 0 0 0 0.25rem rgba(95, 95, 95, 0.1);
+  /* Agrega un efecto de sombra al enfocar */
 }

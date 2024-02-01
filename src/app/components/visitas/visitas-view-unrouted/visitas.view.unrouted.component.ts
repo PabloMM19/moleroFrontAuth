@@ -13,7 +13,7 @@ export class VisitasViewUnroutedComponent {
 
   currentPage: number = 0; // Establece la página actual aquí
   totalPages: number = 0;
-  pageSize = 10;
+  pageSize = 15;
   pages: number[] = [];
 
   constructor(private visitasService: VisitasService) { }

@@ -57,6 +57,8 @@ import { PruebasNewRoutedComponent } from './components/pruebas/pruebas-new-rout
 import { PruebasNewUnroutedComponent } from './components/pruebas/pruebas-new-unrouted/pruebas-new-unrouted.component';
 import { PruebasEditRoutedComponent } from './components/pruebas/pruebas-edit-routed/pruebas-edit-routed.component';
 import { PruebasEditUnroutedComponent } from './components/pruebas/pruebas-edit-unrouted/pruebas-edit-unrouted.component';
+import { PacientesDetailRoutedComponent } from './components/pacientes/pacientes-detail-routed/pacientes-detail-routed.component';
+import { PacientesDetailUnroutedComponent } from './components/pacientes/pacientes-detail-unrouted/pacientes-detail-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -109,7 +111,9 @@ import { PruebasEditUnroutedComponent } from './components/pruebas/pruebas-edit-
     PruebasNewRoutedComponent,
     PruebasNewUnroutedComponent,
     PruebasEditRoutedComponent,
-    PruebasEditUnroutedComponent
+    PruebasEditUnroutedComponent,
+    PacientesDetailRoutedComponent,
+    PacientesDetailUnroutedComponent
   ],
   imports: [
     BrowserModule,
