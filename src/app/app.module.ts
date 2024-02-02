@@ -62,6 +62,8 @@ import { PacientesDetailUnroutedComponent } from './components/pacientes/pacient
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProgenitoresDetailRoutedComponent } from './components/progenitores/progenitores-detail-routed/progenitores-detail-routed.component';
 import { ProgenitoresDetailUnroutedComponent } from './components/progenitores/progenitores-detail-unrouted/progenitores-detail-unrouted.component';
+import { PacientesPercentilesViewRoutedComponent } from './components/pacientes/pacientes-percentiles-view-routed/pacientes-percentiles-view-routed.component';
+import { PacientesPercentilesViewUnroutedComponent } from './components/pacientes/pacientes-percentiles-view-unrouted/pacientes-percentiles-view-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -118,7 +120,9 @@ import { ProgenitoresDetailUnroutedComponent } from './components/progenitores/p
     PacientesDetailRoutedComponent,
     PacientesDetailUnroutedComponent,
     ProgenitoresDetailRoutedComponent,
-    ProgenitoresDetailUnroutedComponent
+    ProgenitoresDetailUnroutedComponent,
+    PacientesPercentilesViewRoutedComponent,
+    PacientesPercentilesViewUnroutedComponent
   ],
   imports: [
     BrowserModule,
