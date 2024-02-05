@@ -64,6 +64,7 @@ import { ProgenitoresDetailRoutedComponent } from './components/progenitores/pro
 import { ProgenitoresDetailUnroutedComponent } from './components/progenitores/progenitores-detail-unrouted/progenitores-detail-unrouted.component';
 import { PacientesPercentilesViewRoutedComponent } from './components/pacientes/pacientes-percentiles-view-routed/pacientes-percentiles-view-routed.component';
 import { PacientesPercentilesViewUnroutedComponent } from './components/pacientes/pacientes-percentiles-view-unrouted/pacientes-percentiles-view-unrouted.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -132,7 +133,8 @@ import { PacientesPercentilesViewUnroutedComponent } from './components/paciente
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+   // Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

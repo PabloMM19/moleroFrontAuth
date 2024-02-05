@@ -1,4 +1,5 @@
 import { IPaginationInfo } from "./pagination.model";
+import { ISeguroMedico } from "./seguromedico.model";
 
 export interface IPacientesData {
     content: IPacientes[];
@@ -13,5 +14,6 @@ export interface IPacientes {
     papellido: string;
     sapellido: string;
     foto: string;
-    seguromedico_id: number;
+    seguroMedico: ISeguroMedico;
+    progenitores?: any[];
 }

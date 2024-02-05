@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IProgenitores, IProgenitoresData } from '../model/progenitores.model';
 import { Observable } from 'rxjs';
+import { IPacientes } from '../model/pacientes.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,14 @@ export class ProgenitoresService {
   getProgenitorData() {
     return this.http.get<IProgenitoresData>(`${this.apiUrl}/progenitor?page=0&size=10`);
   }
+
+  // En tu servicio ProgenitoresService
+
+getPacientesByProgenitorId(progenitorId: number): Observable<IPacientes[]> {
+  return this.http.get<IPacientes[]>(`${this.apiUrl}/progenitor/${progenitorId}/pacientes`);
+}
+
+  
 
   getOneProgenitor(id: number) {
     return this.http.get<IProgenitores>(`${this.apiUrl}/progenitor/${id}`);

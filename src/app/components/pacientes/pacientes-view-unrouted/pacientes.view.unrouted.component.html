@@ -6,33 +6,49 @@
             <button type="button" class="btn btn-outline-secondary me-4" routerLink="/pacientes/nuevo" style="white-space: nowrap; margin-left: 4.5%;">Añadir paciente</button>
             
             <div class="input-group" style="margin-right: -13.8%;">
-                <input type="text" class="form-control" placeholder="Buscar paciente" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+                <input type="text" class="form-control" placeholder="Buscar paciente" aria-label="Recipient's username" aria-describedby="button-addon2" >
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2" >Buscar</button>
             </div>
         </div>
     </div>
 
     <!-- Tarjetas de pacientes -->
-    <div class="container" style="margin-left: 19%;">
-        <div class="row row-cards">
-            <div *ngFor="let paciente of pacientesData" class="col-md-2">
-                <div class="card mb-4 box-shadow">
-                    <img class="card-img-top card-img-square" src="../../../../assets/imgPacientes/persona{{paciente.id}}.png" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">{{paciente.codigo}}</p>
-                        <p class="card-text">{{paciente.papellido}} {{paciente.sapellido}}, {{paciente.nombre}}</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/pacientes/ver/{{paciente.id}}">Ver</button>
-                                <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/pacientes/editar/{{paciente.id}}">Editar</button>
-                                <button type="button" class="btn btn-sm btn-outline-secondary" (click)="eliminarPaciente(paciente.id)" >Eliminar</button>
-                            </div>
+<!-- Tarjetas de pacientes -->
+<div class="container" style="margin-left: 19%;">
+    <div class="row row-cards">
+        <div *ngFor="let paciente of pacientesData" class="col-md-2">
+            <div class="card mb-4 box-shadow">
+                <img class="card-img-top card-img-square" src="../../../../assets/imgPacientes/persona{{paciente.id}}.png" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">{{paciente.codigo}}</p>
+                    <p class="card-text">{{paciente.papellido}} {{paciente.sapellido}}, {{paciente.nombre}}</p>
+                    <!-- <p class="card-text">{{paciente.seguroMedico.companyia}}</p> -->
+                    <!-- Agrega un contenedor para los progenitores --
+                    <div *ngIf="paciente.progenitores && paciente.progenitores.length">
+                        <p class="card-text">Progenitores:</p>
+                        <ul>
+                            <li *ngFor="let progenitor of paciente.progenitores">
+                                {{progenitor.nombre}} {{progenitor.papellido}} {{progenitor.sapellido}}
+                            </li>
+                        </ul>
+                    </div>-->
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/pacientes/ver/{{paciente.id}}">Ver</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/pacientes/editar/{{paciente.id}}">Editar</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" (click)="eliminarPaciente(paciente.id)" >Eliminar</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div *ngIf="!pacientesData?.length">
+            <p>No se encontraron pacientes</p>
+        </div>
     </div>
+</div>
+
+
 
     <!-- Paginación -->
     <div class="pagination">

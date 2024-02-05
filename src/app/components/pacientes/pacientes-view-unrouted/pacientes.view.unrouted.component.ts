@@ -23,17 +23,40 @@ export class PacientesViewUnroutedComponent {
 
   cargaPacientes() {
     this.pacientesService.getPacienteDataPage(this.currentPage, this.pageSize).subscribe(
-      data => {
-        this.pacientesData = data.content;
-        this.totalPages = data.totalPages;
-        this.pages = Array.from({ length: this.totalPages }, (_, i) => i);
-      },
-      error => {
-        console.error('Error al obtener la lista de pacientes', error);
-        // Maneja el error según tus necesidades
-      }
+        data => {
+            this.pacientesData = data.content;
+            this.totalPages = data.totalPages;
+            this.pages = Array.from({ length: this.totalPages }, (_, i) => i);
+
+            // Obtener progenitores para cada paciente
+            this.pacientesData.forEach(paciente => {
+                this.obtenerProgenitoresPorIdDelPaciente(paciente.id);
+            });
+        },
+        error => {
+            console.error('Error al obtener la lista de pacientes', error);
+            // Maneja el error según tus necesidades
+        }
     );
-  }
+}
+
+obtenerProgenitoresPorIdDelPaciente(pacienteId: number) {
+    this.pacientesService.getProgenitoresByPacienteId(pacienteId).subscribe(
+        progenitores => {
+            console.log(`Progenitores asociados al paciente ${pacienteId}:`, progenitores);
+            // Asignar progenitores al paciente
+            const paciente = this.pacientesData.find(p => p.id === pacienteId);
+            if (paciente) {
+                paciente.progenitores = progenitores;
+            }
+        },
+        error => {
+            console.error(`Error al obtener progenitores asociados al paciente ${pacienteId}`, error);
+            // Maneja el error según tus necesidades
+        }
+    );
+}
+
 
   eliminarPaciente(id: number) {
     this.pacientesService.deletePaciente(id).subscribe(

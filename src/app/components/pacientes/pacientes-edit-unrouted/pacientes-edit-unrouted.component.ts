@@ -24,7 +24,7 @@ export class PacientesEditUnroutedComponent implements OnInit {
         papellido: paciente.papellido,
         sapellido: paciente.sapellido,
         foto: paciente.foto,
-        seguromedico_id: paciente.seguromedico_id
+        seguroMedico: paciente.seguroMedico.id
       });
     } else {
       this.pacienteForm.patchValue({
@@ -35,7 +35,7 @@ export class PacientesEditUnroutedComponent implements OnInit {
         papellido: '',
         sapellido: '',
         foto: '',
-        seguromedico_id: 0
+        seguroMedico: { id: 0, companyia: '', descripcion: ''}
       });
     }
   }
@@ -48,12 +48,16 @@ export class PacientesEditUnroutedComponent implements OnInit {
     this.pacienteForm = this.fb.group({
       id: [0, Validators.required],
       codigo: ['', Validators.required],
-      //fnacimiento: ['', Validators.required],
+      fnacimiento: ['', Validators.required],
       nombre: ['', Validators.required],
       papellido: ['', Validators.required],
       sapellido: ['', Validators.required],
       foto: ['', Validators.required],
-      seguromedico_id: [1, Validators.required]
+      seguroMedico: this.fb.group({
+        id: [1, Validators.required],
+        companyia: ['', Validators.required],
+        descripcion: ['', Validators.required]
+      })
     });
   }
 
@@ -67,7 +71,7 @@ export class PacientesEditUnroutedComponent implements OnInit {
         papellido: this.paciente.papellido,
         sapellido: this.paciente.sapellido,
         foto: this.paciente.foto,
-        seguromedico_id: this.paciente.seguromedico_id
+        seguroMedico: this.paciente.seguroMedico.id
       });
     }
   }

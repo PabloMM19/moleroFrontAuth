@@ -9,7 +9,29 @@ import { ProgenitoresService } from 'src/app/service/progenitores.service';
 })
 export class ProgenitoresNewUnroutedComponent implements OnInit {
 
-progenitor = {id: 0, dni: '', nombre: '', papellido: '', sapellido: '', rol: 0, paciente_id: 0};
+  progenitor = {
+    id: 0,
+    dni: '',
+    nombre: '',
+    papellido: '',
+    sapellido: '',
+    rol: 0,
+    paciente_id: 0,
+    paciente: {
+      id: 0,
+      codigo: '',
+      nombre: '',
+      papellido: '',
+      sapellido: '',
+      foto: '',
+      seguroMedico: {
+        id: 0,
+        companyia: '',
+        descripcion: ''
+      }
+    }
+  };
+  
 
   constructor( private progenitorService: ProgenitoresService, private router: Router ) { }
 

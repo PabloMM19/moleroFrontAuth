@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IPacientes } from 'src/app/model/pacientes.model';
 import { IProgenitores } from 'src/app/model/progenitores.model';
 import { ProgenitoresService } from 'src/app/service/progenitores.service';
 
@@ -10,6 +11,7 @@ import { ProgenitoresService } from 'src/app/service/progenitores.service';
 export class ProgenitoresViewUnroutedComponent implements OnInit {
 
   @Input() progenitoresData: IProgenitores[] = [];
+  pacientesAsociados: IPacientes[] = [];
 
   currentPage: number = 0; // Establece la página actual aquí
   totalPages: number = 0;
@@ -28,6 +30,9 @@ export class ProgenitoresViewUnroutedComponent implements OnInit {
         this.progenitoresData = data.content;
         this.totalPages = data.totalPages;
         this.pages = Array.from({ length: this.totalPages }, (_, i) => i);
+        
+        // Luego de cargar los progenitores, carga los pacientes asociados
+        this.cargarPacientesAsociados();
       },
       error => {
         console.error('Error al obtener la lista de pacientes', error);
@@ -35,6 +40,25 @@ export class ProgenitoresViewUnroutedComponent implements OnInit {
       }
     );
   }
+
+  cargarPacientesAsociados() {
+    // Itera sobre los progenitores para cargar los pacientes asociados de cada uno
+    this.progenitoresData.forEach(progenitor => {
+      this.progenitoresService.getPacientesByProgenitorId(progenitor.id).subscribe(
+        data => {
+          progenitor.paciente = data.length > 0 ? data[0] : {} as IPacientes;
+  
+          // Si progenitor.paciente es nulo, crea un objeto IPacientes vacío para evitar errores
+          progenitor.paciente = progenitor.paciente || {} as IPacientes;
+        },
+        error => {
+          console.error('Error al obtener los pacientes asociados al progenitor', error);
+          // Maneja el error según tus necesidades
+        }
+      );
+    });
+  }
+  
 
   eliminarProgenitor(id: number) {
     this.progenitoresService.deleteProgenitor(id).subscribe(

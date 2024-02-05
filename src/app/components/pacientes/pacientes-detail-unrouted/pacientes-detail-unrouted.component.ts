@@ -27,13 +27,34 @@ export class PacientesDetailUnroutedComponent implements OnInit {
       next: (data: IPacientes) => {
         console.log('Data del servicio:', data);
         this.paciente = data;
+        this.obtenerProgenitores();
       },
       error: (error: HttpErrorResponse) => {
         this.status = error;
       }
-
-    })
+    });
   }
+  
+  obtenerProgenitores(): void {
+    this.pacientesService.getProgenitoresByPacienteId(this.paciente.id).subscribe(
+      (progenitores: any[]) => {
+        console.log(`Progenitores asociados al paciente ${this.paciente.id}:`, progenitores);
+        this.paciente.progenitores = progenitores;
+        
+        // Itera sobre cada progenitor para acceder al rol
+        progenitores.forEach((progenitor: any) => {
+          console.log(progenitor.rol);
+        });
+      },
+      error => {
+        console.error(`Error al obtener progenitores asociados al paciente ${this.paciente.id}`, error);
+        // Maneja el error según tus necesidades
+      }
+    );
+  }
+  
+  
+  
 
   openModal(content: any) {
     this.modalService.open(content, { centered: true, size: 'lg' });

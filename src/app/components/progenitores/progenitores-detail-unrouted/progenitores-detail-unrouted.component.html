@@ -12,7 +12,7 @@
           <p class="card-text"><strong>DNI:</strong> {{progenitor.dni}}</p>
           <!-- Agrega más detalles según tus necesidades -->
           <p class="card-text"><strong>Edad:</strong> 30 años / (15/01/2084)</p>
-          <p class="card-text"><strong>Seguro médico:</strong> AseguraVida</p>
+          <p class="card-text"><strong>Seguro médico:</strong> {{progenitor.paciente.seguroMedico.companyia}}</p>
           <!-- ... (otros detalles) ... -->
         </div>
       </div>
@@ -29,8 +29,9 @@
       <div class="col-md-4">
         <div class="card-body">
           <h5 class="card-title">Cónyuge e hijo/s</h5><br>
-          <p class="card-text"><strong>Nombre del cónyuge:</strong> Sergio Fernández Ramiro</p>
-          <p class="card-text"><strong>Nombre del hijo:</strong> Marta Castillo López</p>
+          <p class="card-text"><strong>Nombre del cónyuge:</strong> PROGENITOR PRUEBA </p>
+          <p class="card-text"><strong>Nombre del hijo:</strong> {{progenitor.paciente.papellido}} {{progenitor.paciente.sapellido}}, {{progenitor.paciente.nombre}}</p>
+
         </div>
       </div>
       <div class="col-md-4" style="display: flex; align-items: end;">

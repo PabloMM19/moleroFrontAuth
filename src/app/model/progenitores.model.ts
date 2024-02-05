@@ -1,3 +1,4 @@
+import { IPacientes } from "./pacientes.model";
 import { IPaginationInfo } from "./pagination.model";
 
 export interface IProgenitoresData {
@@ -13,5 +14,6 @@ export interface IProgenitores {
     papellido: string;
     sapellido: string;
     rol: number;
-    paciente_id: number;
+    //paciente_id: number;
+    paciente: IPacientes;
 }

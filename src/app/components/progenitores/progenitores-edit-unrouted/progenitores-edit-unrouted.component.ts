@@ -24,7 +24,7 @@ export class ProgenitoresEditUnroutedComponent implements OnInit {
         sapellido: progenitor.sapellido,
         dni: progenitor.dni,
         rol: progenitor.rol,
-        paciente_id: progenitor.paciente_id
+        paciente: progenitor.paciente
       });
     } else {
       this.progenitorForm.patchValue({
@@ -51,9 +51,23 @@ export class ProgenitoresEditUnroutedComponent implements OnInit {
       sapellido: ['', Validators.required],
       dni: ['', Validators.required],
       rol: [0, Validators.required],
-      paciente_id: [0, Validators.required]
+      paciente_id: [0, Validators.required],
+      paciente: this.fb.group({
+        id: [0, Validators.required],
+        codigo: ['', Validators.required],
+        nombre: ['', Validators.required],
+        papellido: ['', Validators.required],
+        sapellido: ['', Validators.required],
+        foto: ['', Validators.required],
+        seguroMedico: this.fb.group({
+          id: [0, Validators.required],
+          companyia: ['', Validators.required],
+          descripcion: ['', Validators.required]
+        })
+      })
     });
   }
+  
 
   ngOnInit() {
     if (this.progenitor) {
@@ -64,7 +78,7 @@ export class ProgenitoresEditUnroutedComponent implements OnInit {
         sapellido: this.progenitor.sapellido,
         dni: this.progenitor.dni,
         rol: this.progenitor.rol,
-        paciente_id: this.progenitor.paciente_id
+        paciente: this.progenitor.paciente
       });
     }
   }

@@ -13,7 +13,7 @@
           <!-- Agrega más detalles según tus necesidades -->
           <p class="card-text"><strong>Edad:</strong> 10 años / (15/01/2014)</p>
           <p class="card-text"><strong>Enfermedad:</strong> Diabetes tipo 1</p>
-          <p class="card-text"><strong>Seguro médico:</strong> AseguraVida</p>
+          <p class="card-text"><strong>Seguro médico:</strong> {{paciente.seguroMedico.companyia}}</p>
           <!-- ... (otros detalles) ... -->
         </div>
       </div>
@@ -84,23 +84,37 @@
   </ng-template>
 
   <!-- Información del progenitor -->
-  <div class="card mb-3">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="../../../../assets/imgProgenitores/progenitor{{paciente.id-1}}.png" class="img-fluid" alt="Foto del Paciente"
-          style="width:70%;">
-      </div>
-      <div class="col-md-4">
-        <div class="card-body">
-          <h5 class="card-title">Progenitores</h5><br>
-          <p class="card-text"><strong>Nombre del padre:</strong> Sergio Fernández Ramiro</p>
-          <p class="card-text"><strong>Nombre de la madre:</strong> Marta Castillo López</p>
-        </div>
-      </div>
-      <div class="col-md-4" style="display: flex; align-items: end;">
-        <img src="../../../../assets/imgProgenitores/progenitor{{paciente.id-2}}.png" class="img-fluid" alt="Foto del Paciente"
-          style="width:70%;">
+<div class="card mb-3">
+  <div class="row g-0" *ngIf="paciente.progenitores && paciente.progenitores.length > 0">
+    <!-- Imagen de la madre a la izquierda -->
+    <div class="col-md-4">
+      <img *ngIf="paciente.progenitores[0]?.rol === false" src="../../../../assets/imgProgenitores/progenitor{{paciente.id-1}}.png"
+        class="img-fluid" alt="Foto de la Madre" style="width:70%;">
+      <img *ngIf="paciente.progenitores[0]?.rol === true" src="../../../../assets/imgProgenitores/progenitor{{paciente.id-2}}.png"
+        class="img-fluid" alt="Foto del Padre" style="width:70%;">
+    </div>
+    <div class="col-md-4">
+      <div class="card-body">
+        <h5 class="card-title">Progenitores</h5><br>
+
+        <p *ngFor="let progenitor of paciente.progenitores">
+          <ng-container *ngIf="progenitor.rol === false">
+            <strong>Nombre de la madre:</strong> {{progenitor.nombre}} {{progenitor.papellido}} {{progenitor.sapellido}}<br>
+          </ng-container>
+          <ng-container *ngIf="progenitor.rol === true">
+            <strong>Nombre del padre:</strong> {{progenitor.nombre}} {{progenitor.papellido}} {{progenitor.sapellido}}<br>
+          </ng-container>
+        </p>
       </div>
     </div>
-  </div><br>
+    <!-- Imagen del padre a la derecha -->
+    <div class="col-md-4" style="display: flex; align-items: end;">
+      <img *ngIf="paciente.progenitores[0]?.rol === false" src="../../../../assets/imgProgenitores/progenitor{{paciente.id-2}}.png"
+        class="img-fluid" alt="Foto del Padre" style="width:70%;">
+      <img *ngIf="paciente.progenitores[0]?.rol === true" src="../../../../assets/imgProgenitores/progenitor{{paciente.id-1}}.png"
+        class="img-fluid" alt="Foto de la Madre" style="width:70%;">
+    </div>
+  </div>
+</div><br>
+
 </div>
