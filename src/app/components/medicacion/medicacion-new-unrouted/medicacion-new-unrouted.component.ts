@@ -9,7 +9,7 @@ import { MedicacionService } from 'src/app/service/medicacion.service';
 })
 export class MedicacionNewUnroutedComponent implements OnInit {
 
-  medicacion = { id: 1, nombre: '', descripcion: '', medida_id: 1 };
+  medicacion = { id: 1, nombre: '', descripcion: '', medida: { id:0,  nombre: ''} };
 
   constructor(private medicacionService: MedicacionService, private router: Router) { }
 

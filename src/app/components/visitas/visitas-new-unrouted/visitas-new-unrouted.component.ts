@@ -10,9 +10,27 @@ import { VisitasService } from 'src/app/service/visitas.service';
 export class VisitasNewUnroutedComponent implements OnInit {
 
 
-  visita = {id:0, fecha: '', comentario:'', diagnostico_id:0, paciente_id:0};
+  visita = {
+    id: 0, fecha: '', comentario: '', diagnostico: {
+      id: 0,
+      nombre: '',
+      descripcion: ''
+    }, paciente: {
+      id: 0,
+      codigo: '',
+      nombre: '',
+      papellido: '',
+      sapellido: '',
+      foto: '',
+      seguroMedico: {
+        id: 0,
+        companyia: '',
+        descripcion: ''
+      }
+    }
+  };
 
-  constructor( private visitasService: VisitasService, private router: Router ) { }
+  constructor(private visitasService: VisitasService, private router: Router) { }
 
   ngOnInit() {
   }

@@ -43,23 +43,26 @@
                     </div>
                     <div class="modal-body">
                         <div style="text-align: justify;">
-                        En una consulta médica diaria, un paciente se presenta con síntomas leves de fatiga. Tras
-                        revisar el historial y realizar pruebas de sangre y radiografías, se detecta una respuesta
-                        inflamatoria. Se prescribe medicación y se considera rehabilitación física según sea necesario.
-                        El paciente recibe orientación sobre el tratamiento y se programa una consulta de seguimiento
-                        para evaluar la progresión. </div><br>
+                            En una consulta médica diaria, un paciente se presenta con síntomas leves de fatiga. Tras
+                            revisar el historial y realizar pruebas de sangre y radiografías, se detecta una respuesta
+                            inflamatoria. Se prescribe medicación y se considera rehabilitación física según sea
+                            necesario.
+                            El paciente recibe orientación sobre el tratamiento y se programa una consulta de
+                            seguimiento
+                            para evaluar la progresión. </div><br>
                         <div class="row">
                             <!-- Columna 1 -->
                             <div class="col-md-8 tarjetas">
-                                
+
                                 <!-- Tarjeta 1 -->
                                 <div class="card mb-3">
                                     <!-- <img src="../../../../assets/imgMedicaciones/medicacion63.png" class="card-img-top" alt="Imagen 1"> -->
                                     <div class="card-body">
-                                        <h4>Ver el diagnóstico</h4>
+                                        <h4>Ver el diagnóstico de "{{visita.diagnostico.nombre}}"</h4>
+                                        <p></p>
                                     </div>
                                 </div>
-                    
+
                                 <!-- Tarjeta 2 -->
                                 <div class="card" style="margin-top: 4%;">
                                     <div class="card-body">
@@ -74,21 +77,23 @@
                                     </div>
                                 </div>
                             </div>
-                    
+
                             <!-- Columna 2 -->
-<div class="col-md-4">
-    <!-- Tarjeta 3 -->
-    <div class="card mb-3">
-        <div class="card-header" style="background-color: rgba(0, 0, 0, 0);">
-            Paciente
-                                                </div>
-        <img src="../../../../assets/imgPacientes/persona10.png" class="img-fluid" alt="Imagen 3">
-        <div class="card-body">
-            <p class="card-text">Papellido Sapellido, Nombre</p>
-            <p class="card-text">CODIGO</p>
-        </div>
-    </div>
-</div>
+                            <div class="col-md-4">
+                                <!-- Tarjeta 3 -->
+                                <div class="card mb-3">
+                                    <div class="card-header" style="background-color: rgba(0, 0, 0, 0);">
+                                        Paciente
+                                    </div>
+                                    <img src="../../../../assets/imgPacientes/persona{{visita.paciente.id}}.png"
+                                        class="img-fluid" alt="Imagen 3">
+                                    <div class="card-body">
+                                        <p class="card-text">{{visita.paciente.papellido}}
+                                            {{visita.paciente.sapellido}}, {{visita.paciente.nombre}}</p>
+                                        <p class="card-text">{{visita.paciente.codigo}}</p>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
@@ -101,17 +106,17 @@
             </tr>
         </tbody>
     </table>
-<!-- Paginación -->
-<div class="pagination">
-    <button class="btn btn-outline-secondary" (click)="goToFirstPage()"><<</button>&nbsp;
-    <button class="btn btn-outline-secondary" (click)="prevPage()"><</button>&nbsp;
-
-    <select style="text-align: center;" [(ngModel)]="currentPage" class="form-control" (change)="currentPage !== null ? goToPage(currentPage) : null">
-      <option *ngFor="let page of pages" [value]="page" [selected]="page === currentPage">{{ page + 1 }}</option>
-    </select>&nbsp;
-
-    <button class="btn btn-outline-secondary" (click)="nextPage()">></button>&nbsp;
-    <button class="btn btn-outline-secondary" (click)="goToLastPage()">>></button>
-</div>
+    <!-- Paginación -->
+    <div class="pagination">
+        <button class="btn btn-outline-secondary" (click)="goToFirstPage()"><<</button>&nbsp;
+        <button class="btn btn-outline-secondary" (click)="prevPage()"><</button>&nbsp;
+    
+        <select style="text-align: center;" [(ngModel)]="currentPage" class="form-control" (change)="currentPage !== null ? goToPage(currentPage) : null">
+          <option *ngFor="let page of pages" [value]="page" [selected]="page === currentPage">{{ page + 1 }}</option>
+        </select>&nbsp;
+    
+        <button class="btn btn-outline-secondary" (click)="nextPage()">></button>&nbsp;
+        <button class="btn btn-outline-secondary" (click)="goToLastPage()">>></button>
+    </div>
 
 </div>

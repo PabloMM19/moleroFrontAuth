@@ -1,0 +1,49 @@
+.pagination {
+    margin-left: 12.5%;
+    width: 800px;
+    margin-bottom: 1%;
+  }
+  
+  .table {
+    margin-left: 12.5%;
+    width: 1330px; /* Establecemos el ancho a automático para permitir que la tabla se expanda según sea necesario */
+    max-width: 100%; /* Añadimos un ancho máximo para evitar el desplazamiento lateral */
+  }
+  
+  /* Ajustes adicionales para mejorar el espacio entre la barra de búsqueda y la tabla */
+  .col-md-8 {
+    margin-bottom: 1%;
+  }
+  
+  .table-responsive {
+    margin-top: 1%;
+  }
+  
+  #fila1{
+    width: auto;
+  }
+  #fila2{
+    width: auto;
+  }
+  #fila3{
+    width: 400px;
+  }
+  
+  .btn:hover {
+    background-color: #b9b9b9;
+    color: black;
+    /*channge the pointer*/
+    cursor: pointer;
+  }
+  
+  select:focus {
+    border-color: rgb(155, 155, 155);
+    box-shadow: 0 0 0 0.25rem rgba(95, 95, 95, 0.1);
+  }
+  
+  /* Agrega estilos para el estado :focus de la barra de búsqueda */
+  .input-group input.form-control:focus {
+    border-color: rgb(155, 155, 155);
+    box-shadow: 0 0 0 0.25rem rgba(95, 95, 95, 0.1);
+    /* Agrega un efecto de sombra al enfocar */
+  }

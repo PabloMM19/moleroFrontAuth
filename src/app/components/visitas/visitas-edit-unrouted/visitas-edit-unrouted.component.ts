@@ -21,16 +21,16 @@ export class VisitasEditUnroutedComponent implements OnInit {
         id: visita.id,
         fecha: visita.fecha,
         comentario: visita.comentario,
-        paciente_id: visita.paciente_id,
-        diagnostico_id: visita.diagnostico_id
+        paciente_id: visita.paciente,
+        diagnostico: visita.diagnostico
       });
     } else {
       this.visitaForm.patchValue({
         id: 0,
         fecha: '',
         comentario: '',
-        paciente_id: 0,
-        diagnostico_id: 0
+        paciente: 0,
+        diagnostico: 0
       });
     }
   }
@@ -44,8 +44,24 @@ export class VisitasEditUnroutedComponent implements OnInit {
       id: [0, Validators.required],
       fecha: ['', Validators.required],
       comentario: ['', Validators.required],
-      paciente_id: [0, Validators.required],
-      diagnostico_id: [0, Validators.required]
+      paciente: this.fb.group({
+        id: [0, Validators.required],
+        codigo: ['', Validators.required],
+        nombre: ['', Validators.required],
+        papellido: ['', Validators.required],
+        sapellido: ['', Validators.required],
+        foto: ['', Validators.required],
+        seguroMedico: this.fb.group({
+          id: [0, Validators.required],
+          companyia: ['', Validators.required],
+          descripcion: ['', Validators.required]
+        })
+      }),
+      diagnostico: this.fb.group({
+        id: [0, Validators.required],
+        nombre: ['', Validators.required],
+        descripcion: ['', Validators.required]
+      }),
     });
   }
 
@@ -55,8 +71,8 @@ export class VisitasEditUnroutedComponent implements OnInit {
         id: this.visita.id,
         fecha: this.visita.fecha,
         comentario: this.visita.comentario,
-        paciente_id: this.visita.paciente_id,
-        diagnostico_id: this.visita.diagnostico_id
+        paciente: this.visita.paciente,
+        diagnostico: this.visita.diagnostico
       });
     }
   }

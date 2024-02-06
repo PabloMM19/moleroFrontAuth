@@ -34,7 +34,7 @@ export class ProgenitoresEditUnroutedComponent implements OnInit {
         sapellido: '',
         dni: '',
         rol: 0,
-        paciente_id: 0
+        paciente: 0
       })
     }
   }
@@ -51,7 +51,6 @@ export class ProgenitoresEditUnroutedComponent implements OnInit {
       sapellido: ['', Validators.required],
       dni: ['', Validators.required],
       rol: [0, Validators.required],
-      paciente_id: [0, Validators.required],
       paciente: this.fb.group({
         id: [0, Validators.required],
         codigo: ['', Validators.required],

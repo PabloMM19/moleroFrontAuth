@@ -1,3 +1,4 @@
+import { IMedidas } from "./medida.model";
 import { IPaginationInfo } from "./pagination.model";
 
 export interface IMedicacionData { 
@@ -10,5 +11,5 @@ export interface IMedicacion {
     id: number;
     nombre: string;
     descripcion: string;
-    medida_id: number;
+    medida: IMedidas;
 }

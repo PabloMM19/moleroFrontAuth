@@ -19,15 +19,15 @@ export class MedicacionEditUnroutedComponent implements OnInit {
       this.medicacionForm.patchValue({
         id: medicacion.id,
         nombre: medicacion.nombre,
-        papellido: medicacion.descripcion,
-        seguromedico_id: medicacion.medida_id
+        descripcion: medicacion.nombre,
+        medida: medicacion.medida
       });
     } else {
       this.medicacionForm.patchValue({
         id: 0,
         nombre: '',
         descripcion: '',
-        medida_id: 0
+        medida: 0
       });
     }
   }
@@ -41,7 +41,10 @@ export class MedicacionEditUnroutedComponent implements OnInit {
       id: [0, Validators.required],
       nombre: ['', Validators.required],
       descripcion: ['', Validators.required],
-      medida_id: [1, Validators.required]
+      medida: this.fb.group({
+        id: [0, Validators.required],
+        nombre: ['', Validators.required]
+      })
     });
   }
 
@@ -51,7 +54,7 @@ export class MedicacionEditUnroutedComponent implements OnInit {
         id: this.medicacion.id,
         nombre: this.medicacion.nombre,
         descripcion: this.medicacion.descripcion,
-        medida_id: this.medicacion.medida_id
+        medida: this.medicacion.medida
       });
     }
   }

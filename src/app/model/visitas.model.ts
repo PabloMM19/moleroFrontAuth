@@ -1,3 +1,5 @@
+import { IDiagnosticos } from "./diagnosticos.model";
+import { IPacientes } from "./pacientes.model";
 import { IPaginationInfo } from "./pagination.model";
 
 export interface IVisitasData {
@@ -10,6 +12,6 @@ export interface IVisitas {
     id: number;
     fecha: string;
     comentario: string;
-    diagnostico_id: number;
-    paciente_id: number;
+    diagnostico: IDiagnosticos;
+    paciente: IPacientes;
 }

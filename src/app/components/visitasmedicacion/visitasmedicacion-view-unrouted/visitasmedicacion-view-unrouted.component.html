@@ -1,0 +1,56 @@
+<div class="container-fluid full-height-container d-flex flex-column justify-content-center align-items-center"
+    style="margin-top: 1%;">
+    <!-- Barra de búsqueda y botón "Añadir paciente" -->
+    <div class="col-md-8">
+        <div class="d-flex align-items-center mb-3">
+            <button type="button" class="btn btn-outline-secondary me-4" routerLink="/visitamedicacion/nuevo"
+                style="white-space: nowrap; margin-left: 4.5%;">Añadir Medicacion</button>
+
+            <div class="input-group" style="margin-right: -13.8%;">
+                <input type="text" class="form-control" placeholder="Buscar medicacion o visita"
+                    aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+            </div>
+        </div>
+    </div>
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Motivo de la visita</th>
+                    <th scope="col">Medicacion</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr *ngFor="let visitaMedicacion of visitasmedicacionData">
+                    <td id="fila1">{{visitaMedicacion.id}}</td>
+                    <td id="fila2">{{visitaMedicacion.visita.fecha}}</td>
+                    <td id="fila2">{{visitaMedicacion.visita.comentario}}</td>
+                    <td id="fila2">{{visitaMedicacion.medicacion.nombre}}</td>
+                    <td id="fila3">
+                        <div class="d-flex justify-content-center">
+                            <a class="btn btn-secondary btn-sm mx-1" id="" style="background-color: #a5a5a5;">Ver detalles</a>
+                            <a class="btn btn-secondary btn-sm mx-1" style="background-color: #777777;"
+                                routerLink="/visitamedicacion/editar/{{visitaMedicacion.id}}">Modificar</a>
+                            <a class="btn btn-secondary btn-sm mx-1" style="background-color: rgb(82, 82, 82);"
+                                (click)="eliminarVisitaMedicacion(visitaMedicacion.id)">Eliminar</a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    <!-- Paginación -->
+    <div class="pagination">
+        <button class="btn btn-outline-secondary" (click)="goToFirstPage()"><<</button>&nbsp;
+        <button class="btn btn-outline-secondary" (click)="prevPage()"><</button>&nbsp;
+
+        <select style="text-align: center;" [(ngModel)]="currentPage" class="form-control" (change)="currentPage !== null ? goToPage(currentPage) : null">
+          <option *ngFor="let page of pages" [value]="page" [selected]="page === currentPage">{{ page + 1 }}</option>
+        </select>&nbsp;
+
+        <button class="btn btn-outline-secondary" (click)="nextPage()">></button>&nbsp;
+        <button class="btn btn-outline-secondary" (click)="goToLastPage()">>></button>
+    </div>
+</div>

@@ -65,6 +65,10 @@ import { ProgenitoresDetailUnroutedComponent } from './components/progenitores/p
 import { PacientesPercentilesViewRoutedComponent } from './components/pacientes/pacientes-percentiles-view-routed/pacientes-percentiles-view-routed.component';
 import { PacientesPercentilesViewUnroutedComponent } from './components/pacientes/pacientes-percentiles-view-unrouted/pacientes-percentiles-view-unrouted.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { VisitasmedicacionViewRoutedComponent } from './components/visitasmedicacion/visitasmedicacion-view-routed/visitasmedicacion-view-routed.component';
+import { VisitasmedicacionViewUnroutedComponent } from './components/visitasmedicacion/visitasmedicacion-view-unrouted/visitasmedicacion-view-unrouted.component';
+import { VisitaspruebasViewRoutedComponent } from './components/visitaspruebas/visitaspruebas-view-routed/visitaspruebas-view-routed.component';
+import { VisitaspruebasViewUnroutedComponent } from './components/visitaspruebas/visitaspruebas-view-unrouted/visitaspruebas-view-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -123,7 +127,11 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ProgenitoresDetailRoutedComponent,
     ProgenitoresDetailUnroutedComponent,
     PacientesPercentilesViewRoutedComponent,
-    PacientesPercentilesViewUnroutedComponent
+    PacientesPercentilesViewUnroutedComponent,
+    VisitasmedicacionViewRoutedComponent,
+    VisitasmedicacionViewUnroutedComponent,
+    VisitaspruebasViewRoutedComponent,
+    VisitaspruebasViewUnroutedComponent
   ],
   imports: [
     BrowserModule,
