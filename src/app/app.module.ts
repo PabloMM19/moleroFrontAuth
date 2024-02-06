@@ -69,6 +69,8 @@ import { VisitasmedicacionViewRoutedComponent } from './components/visitasmedica
 import { VisitasmedicacionViewUnroutedComponent } from './components/visitasmedicacion/visitasmedicacion-view-unrouted/visitasmedicacion-view-unrouted.component';
 import { VisitaspruebasViewRoutedComponent } from './components/visitaspruebas/visitaspruebas-view-routed/visitaspruebas-view-routed.component';
 import { VisitaspruebasViewUnroutedComponent } from './components/visitaspruebas/visitaspruebas-view-unrouted/visitaspruebas-view-unrouted.component';
+import { LoginViewRoutedComponent } from './components/shared/login/login-view-routed/login-view-routed.component';
+import { LoginViewUnroutedComponent } from './components/shared/login/login-view-unrouted/login-view-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -131,7 +133,9 @@ import { VisitaspruebasViewUnroutedComponent } from './components/visitaspruebas
     VisitasmedicacionViewRoutedComponent,
     VisitasmedicacionViewUnroutedComponent,
     VisitaspruebasViewRoutedComponent,
-    VisitaspruebasViewUnroutedComponent
+    VisitaspruebasViewUnroutedComponent,
+    LoginViewRoutedComponent,
+    LoginViewUnroutedComponent
   ],
   imports: [
     BrowserModule,
