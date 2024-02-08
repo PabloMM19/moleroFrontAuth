@@ -30,8 +30,13 @@
     <input type="text" class="form-control" id="foto" [(ngModel)]="paciente.foto" name="foto" required>
   </div>
   <div>
-    <label for="seguromedico_id" class="form-label">Seguro Medico</label>
-    <input type="text" class="form-control" id="seguromedico_id" [(ngModel)]="paciente.seguroMedico.id" name="seguromedico_id" required>
-  </div><br>
+    <label for="seguroMedico" class="form-label">Seguro Médico</label>
+    <select class="form-control" id="seguroMedico" [(ngModel)]="paciente.seguroMedico.id" name="seguroMedico" required>
+      <option value="" disabled selected>--Seleccione opción--</option> <!-- Opción por defecto -->
+      <option *ngFor="let seguroMedico of segurosMedicos" [value]="seguroMedico.id">{{ seguroMedico.companyia }}</option>
+    </select>
+  </div>
+  
+  <br>
   <button type="submit" class="btn btn-outline-secondary">Enviar</button>
 </form>

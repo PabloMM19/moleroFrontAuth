@@ -71,6 +71,7 @@ import { VisitaspruebasViewRoutedComponent } from './components/visitaspruebas/v
 import { VisitaspruebasViewUnroutedComponent } from './components/visitaspruebas/visitaspruebas-view-unrouted/visitaspruebas-view-unrouted.component';
 import { LoginViewRoutedComponent } from './components/shared/login/login-view-routed/login-view-routed.component';
 import { LoginViewUnroutedComponent } from './components/shared/login/login-view-unrouted/login-view-unrouted.component';
+import { VisitaspruebasService } from './service/visitaspruebas.service';
 
 @NgModule({
   declarations: [
@@ -148,7 +149,7 @@ import { LoginViewUnroutedComponent } from './components/shared/login/login-view
     NgbModule,
    // Ng2SearchPipeModule
   ],
-  providers: [],
+  providers: [VisitaspruebasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

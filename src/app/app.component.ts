@@ -15,7 +15,7 @@ export class AppComponent {
   ngOnInit() {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.showMenuFooter = event.url !== '/home'; // Mostrar header y footer si no es la landing page
+        this.showMenuFooter = event.url !== '/login'; // Mostrar header y footer si no es la landing page
       }
     });
   }

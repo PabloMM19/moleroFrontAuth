@@ -56,7 +56,7 @@ export class VisitasmedicacionViewUnroutedComponent implements OnInit {
         this.visitasmedicacionData = data.content;
       },
       error => {
-        console.error('Error al obtener la lista de pacientes', error);
+        console.error('Error al obtener la lista de medicaciones', error);
         // Maneja el error según tus necesidades
       }
     );
