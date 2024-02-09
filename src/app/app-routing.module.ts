@@ -29,6 +29,7 @@ import { ProgenitoresDetailRoutedComponent } from "./components/progenitores/pro
 import { VisitasmedicacionViewRoutedComponent } from "./components/visitasmedicacion/visitasmedicacion-view-routed/visitasmedicacion-view-routed.component";
 import { VisitaspruebasViewRoutedComponent } from "./components/visitaspruebas/visitaspruebas-view-routed/visitaspruebas-view-routed.component";
 import { LoginViewRoutedComponent } from "./components/shared/login/login-view-routed/login-view-routed.component";
+import { VisitasBypacienteViewRoutedComponent } from "./components/visitas/visitas-bypaciente-view-routed/visitas-bypaciente-view-routed.component";
 
 const routes: Routes = [
     { path: '', redirectTo: 'pacientes', pathMatch: 'full' }, // Redirigir la ruta vacía a '/home'
@@ -61,6 +62,7 @@ const routes: Routes = [
     { path: 'visitasmedicacion', component: VisitasmedicacionViewRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
     { path: 'visitaspruebas', component: VisitaspruebasViewRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
     { path: 'login', component: LoginViewRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
+    { path: 'visitas/paciente/:id', component: VisitasBypacienteViewRoutedComponent }, // Ruta para cargar DiagnosticosViewRouted
   ];
   
 

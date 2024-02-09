@@ -25,16 +25,16 @@
     <div class="col">
       <div class="card h-100">
         <div class="card-body">
-          <h5 class="card-title">Análisis Clínicos</h5>
-          <p class="card-text">Información sobre análisis clínicos.</p>
-          <button type="button" class="btn btn-outline-secondary" (click)="openModal(staticAnalisis)">Ver
-            Análisis</button>
+          <h5 class="card-title">Visitas de {{paciente.nombre}}</h5>
+          <p class="card-text">Información sobre su historial de visitas.</p>
+          <button type="button" class="btn btn-outline-secondary" routerLink="visitas/paciente/{{paciente.id}}">Ver
+            Visitas</button>
         </div>
       </div>
     </div>
 
-    <!-- Modal -->
-    <ng-template #staticAnalisis let-modal>
+    <!-- Modal --
+    <ng-template #staticVisitas let-modal>
       <div class="modal-header">
         <h5 class="modal-title">Últimos análisis clínicos de {{paciente.papellido}} {{paciente.sapellido}},
           {{paciente.nombre}}</h5>
@@ -54,7 +54,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss()">Cerrar</button>
       </div>
-    </ng-template>
+    </ng-template>-->
 
     <div class="col">
       <div class="card h-100">
