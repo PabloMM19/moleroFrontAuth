@@ -7,32 +7,42 @@ import { VisitasService } from 'src/app/service/visitas.service';
   templateUrl: './visitas-bypaciente-view-unrouted.component.html',
   styleUrls: ['./visitas-bypaciente-view-unrouted.component.css']
 })
-export class VisitasBypacienteViewUnroutedComponent{
+export class VisitasBypacienteViewUnroutedComponent {
 
-  @Input() visita: IVisitas[] = []; // Reemplaza 6 con el ID del paciente deseado
+  @Input() id: number = 1;
+
+  visitas: IVisitas[] = [];
+
   currentPage: number = 0; // Establece la página actual aquí
   totalPages: number = 0;
   pageSize = 15;
   pages: number[] = [];
 
-  constructor(private visitaService: VisitasService) { }
+  constructor(private visitaService: VisitasService) {
 
-  ngOnInit() {
-    this.getVisitasByPacienteData();
   }
 
-  getVisitasByPacienteData(id: number = 6) {
-    console.log('ID del paciente:', id);
+  ngOnInit() {
+    console.log(this.id);
+    this.getVisitasByPacienteData(this.id);
+  }
+
+  getVisitasByPacienteData(id: number) {
     this.visitaService.getVisitasByPacienteData(id).subscribe(
-      (data: IVisitasData) => {
-        this.visita = data.content;
-        console.log('Visitas del paciente:', this.visita);
+      (data: IVisitas | IVisitas[]) => {
+        if (Array.isArray(data)) {
+          this.visitas = data;
+        } else {
+          this.visitas = [data];
+        }
+        console.log('Visitas del paciente:', this.visitas);
       },
       (error) => {
         console.error('Error al obtener las visitas del paciente:', error);
       }
     );
   }
+  
 
   /* PAGINATION */
 

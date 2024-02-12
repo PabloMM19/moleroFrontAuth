@@ -18,7 +18,7 @@ export class VisitasService {
 
   getVisitasByPacienteData(id: number) {
     console.log('ID del paciente:', id);
-    return this.http.get<IVisitasData>(`${this.apiUrl}/visita/paciente/${id}`);
+    return this.http.get<IVisitas>(`${this.apiUrl}/visita/paciente/${id}`);
   }
 
   getDetailVisita(id: number) {

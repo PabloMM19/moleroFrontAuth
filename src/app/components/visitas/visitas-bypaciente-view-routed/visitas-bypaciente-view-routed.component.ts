@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IVisitas, IVisitasData } from 'src/app/model/visitas.model';
+import { ActivatedRoute } from '@angular/router';
+import { IVisitas } from 'src/app/model/visitas.model';
 import { VisitasService } from 'src/app/service/visitas.service';
 
 @Component({
@@ -8,17 +9,16 @@ import { VisitasService } from 'src/app/service/visitas.service';
   styleUrls: ['./visitas-bypaciente-view-routed.component.css']
 })
 export class VisitasBypacienteViewRoutedComponent implements OnInit {
+  pacienteId!: number;
 
-  visitasData: IVisitas[] = [];
-
-  constructor( private visitaService: VisitasService ) {
-    this.visitaService.getVisitasByPacienteData(6).subscribe((data: IVisitasData) => {
-      this.visitasData = data.content;
-    })
-  }
-  
+  constructor(
+    private visitaService: VisitasService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.pacienteId = params['id']; // Obtiene el id del paciente de la URL
+    });
   }
-
 }
