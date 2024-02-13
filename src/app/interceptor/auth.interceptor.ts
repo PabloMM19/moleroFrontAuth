@@ -10,7 +10,7 @@ export class AuthInterceptor implements HttpInterceptor {
     constructor(private sessionService: SessionService) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
+        
         if (this.sessionService.isSessionActive()) {
             const token = this.sessionService.getToken();
             if (token) {
@@ -19,18 +19,12 @@ export class AuthInterceptor implements HttpInterceptor {
                 });
                 return next.handle(cloned);
             }
+            else {
+                return next.handle(req);
+            }
+        } else {
+            return next.handle(req);
         }
-
-        return next.handle(req).pipe(
-            catchError(error => {
-                if (req.url.endsWith('/login')) {
-                    // Si es una solicitud de inicio de sesión y hay un error de análisis JSON,
-                    // simplemente pasa la respuesta como está
-                    return throwError(error);
-                }
-                // Para otras solicitudes, pasa el error normalmente
-                return throwError(error);
-            })
-        );
+        
     }
 }

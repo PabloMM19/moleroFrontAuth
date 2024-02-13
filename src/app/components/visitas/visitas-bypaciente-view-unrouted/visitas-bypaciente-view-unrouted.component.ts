@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IVisitas, IVisitasData } from 'src/app/model/visitas.model';
 import { VisitasService } from 'src/app/service/visitas.service';
 
@@ -18,7 +19,7 @@ export class VisitasBypacienteViewUnroutedComponent {
   pageSize = 15;
   pages: number[] = [];
 
-  constructor(private visitaService: VisitasService) {
+  constructor(private visitaService: VisitasService, private modalService: NgbModal) {
 
   }
 
@@ -42,6 +43,10 @@ export class VisitasBypacienteViewUnroutedComponent {
       }
     );
   }
+
+  openModal(content: any) {
+    this.modalService.open(content, { centered: true, size: 'lg' });
+  }
   
 
   /* PAGINATION */
@@ -49,33 +54,33 @@ export class VisitasBypacienteViewUnroutedComponent {
   nextPage() {
     if (this.currentPage < this.totalPages - 1) {
       this.currentPage++;
-      //this.cargaPruebas();
+      this.getVisitasByPacienteData(this.id);
     }
   }
 
   prevPage() {
     if (this.currentPage > 0) {
       this.currentPage--;
-      //this.cargaPruebas();
+      this.getVisitasByPacienteData(this.id);
     }
   }
 
   goToPage(page: number | null) {
     if (page !== null && page !== undefined) {
       this.currentPage = page;
-      //this.cargaPruebas();
+      this.getVisitasByPacienteData(this.id);
     }
   }
 
 
   goToFirstPage() {
     this.currentPage = 0;
-    //this.cargaPruebas();
+    this.getVisitasByPacienteData(this.id);
   }
 
   goToLastPage() {
     this.currentPage = this.totalPages - 1;
-    //this.cargaPruebas();
+    this.getVisitasByPacienteData(this.id);
   }
 
   generatePageNumbers(): (number | string)[] {

@@ -19,16 +19,20 @@ export class LoginViewUnroutedComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      username: ['', [Validators.required]],
-      password: ['', Validators.required]
-    });
+
+      this.loginForm = this.formBuilder.group({
+        username: ['', [Validators.required]],
+        password: ['', Validators.required]
+      });
+    
   }
 
   login() {
     if (this.loginForm.valid) {
       const username = this.loginForm.get('username')?.value;
       const password = this.loginForm.get('password')?.value;
+
+      console.log(username, password);
 
       this.sessionService.login(username, password).subscribe(
         (response) => {
