@@ -14,6 +14,10 @@ getVisitasPruebasData() {
     return this.http.get<IVisitasPruebasData>(`${this.apiUrl}/visitaprueba?size=15&page=0`);
 }
 
+getbyvisitaid(id: number) {
+    return this.http.get<IVisitasPrueba>(`${this.apiUrl}/visitaprueba/visita/${id}`);
+}
+
 getDetailVisitasPruebas(id: number): Observable<IVisitasPrueba> {
     return this.http.get<IVisitasPrueba>(`${this.apiUrl}/visitaprueba/${id}`);
 }

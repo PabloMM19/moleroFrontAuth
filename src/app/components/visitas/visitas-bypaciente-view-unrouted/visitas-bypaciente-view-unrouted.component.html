@@ -1,44 +1,45 @@
 <div class="container-fluid full-height-container d-flex flex-column justify-content-center align-items-center"
     style="margin-top: 2%;">
-    <!-- Barra de búsqueda y botón "Añadir paciente" --
+
+    <span *ngFor="let v of visitas.slice(0, 1)" style="margin-bottom: 1.5%;">
+        <h2>Visitas de {{v.paciente.nombre}} {{v.paciente.papellido}} {{v.paciente.sapellido}}</h2>
+    </span>
+    <!-- Barra de búsqueda y botón "Añadir paciente" -->
     <div class="col-md-8">
         <div class="d-flex align-items-center mb-3">
             <button type="button" class="btn btn-outline-secondary me-4" routerLink="/pruebas/nuevo"
                 style="white-space: nowrap; margin-left: 4.5%;">Añadir prueba</button>
 
             <div class="input-group" style="margin-right: -13.8%;">
-                <input type="text" class="form-control" placeholder="Buscar prueba"
-                    aria-describedby="button-addon2">
+                <input type="text" class="form-control" placeholder="Buscar prueba" aria-describedby="button-addon2">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
             </div>
         </div>
-    </div>-->
-    <span *ngFor="let v of visitas.slice(0, 1)" style="margin-bottom: 1.5%;">
-    <h2>Visitas de {{v.paciente.nombre}} {{v.paciente.papellido}} {{v.paciente.sapellido}}</h2>
-    </span>
-        <table class="table table-hover table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Fecha</th>
-                    <th scope="col">Comentario</th>
-                    <th scope="col">Acciones</th>
-                </tr>
-            </thead>
-            <tbody class="table-group-divider">
-                <tr *ngFor="let v of visitas">
-                    <td id="fila1">{{v.id}}</td>
-                    <td id="fila2">{{v.fecha}}</td>
-                    <td id="fila2">{{v.comentario}}</td>
-                    <td id="fila3">
-                        <div class="d-flex justify-content-center">
-                            <a class="btn btn-secondary btn-sm mx-1" id="" style="background-color: #a5a5a5;" (click)="openModal(staticDetalles)">Ver detalles</a>
-                            <a class="btn btn-secondary btn-sm mx-1" style="background-color: #777777;"
-                                routerLink="/pruebas/editar/{{v.id}}">Modificar</a>
-                            <a class="btn btn-secondary btn-sm mx-1" style="background-color: rgb(82, 82, 82);">Eliminar</a>
-                        </div>
-                    </td>
-                    <!-- Modal -->
+    </div>
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Comentario</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr *ngFor="let v of visitas">
+                <td id="fila1">{{v.id}}</td>
+                <td id="fila2">{{v.fecha}}</td>
+                <td id="fila2">{{v.comentario}}</td>
+                <td id="fila3">
+                    <div class="d-flex justify-content-center">
+                        <a class="btn btn-secondary btn-sm mx-1" id="" style="background-color: #a5a5a5;"
+                            (click)="openModal(staticDetalles, v.id)">Ver detalles</a>
+                        <a class="btn btn-secondary btn-sm mx-1" style="background-color: #777777;"
+                            routerLink="/pruebas/editar/{{v.id}}">Modificar</a>
+                        <a class="btn btn-secondary btn-sm mx-1" style="background-color: rgb(82, 82, 82);">Eliminar</a>
+                    </div>
+                </td>
+                <!-- Modal -->
                 <ng-template #staticDetalles let-modal>
                     <div class="modal-header">
                         <h5 class="modal-title">Detalles de la visita del día "{{v.fecha}}"</h5>
@@ -51,25 +52,50 @@
                             <div class="col-md-8 tarjetas">
 
                                 <!-- Tarjeta 1 -->
-                                <div class="card mb-3">
+                                <div class="card mb-3" (click)="showDetails(1)">
                                     <!-- <img src="../../../../assets/imgMedicaciones/medicacion63.png" class="card-img-top" alt="Imagen 1"> -->
                                     <div class="card-body">
-                                        <h4>Diagnóstico de "{{v.diagnostico.nombre}}"</h4>
+                                        <h5>Ver diagnóstico de "{{v.diagnostico.nombre}}"</h5>
                                     </div>
                                 </div>
 
                                 <!-- Tarjeta 2 -->
-                                <div class="card" style="margin-top: 4%;">
-                                    <div class="card-body">
-                                        <h4>Medicación asignada: X (medida)</h4>
-                                        <img src="../../../../assets/imgMedicaciones/medicacion63.png" class="card-img" alt="Imagen 1" style="width: 30%;">
+                                <div class="card" style="margin-top: 4%;" (click)="showDetails(2)">
+                                    <div class="card-body" *ngFor="let vm of visitasmedicacionData">
+                                        <h5>Medicación: {{vm.medicacion.nombre}}</h5>
                                     </div>
                                 </div>
 
                                 <!-- Tarjeta 3 -->
-                                <div class="card" style="margin-top: 4%;">
+                                <div class="card" style="margin-top: 4%;" (click)="showDetails(3)">
                                     <div class="card-body">
-                                        <h4>Ver las pruebas realizadas</h4>
+                                        <h5>Ver las pruebas realizadas</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Tarjeta adicional a la derecha -->
+                            <div class="col-md-4">
+                                <div class="card" style="max-height: 254px; overflow-y: auto;">
+                                    <!-- Contenido de la tarjeta adicional -->
+                                    <div class="card-header">
+                                        Información Adicional
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- Contenido dinámico según la tarjeta seleccionada -->
+                                        <ng-container *ngIf="selectedCard === 1">
+                                            {{v.diagnostico.descripcion}}
+                                        </ng-container>
+                                        <ng-container *ngIf="selectedCard === 2">
+                                            <span *ngFor="let vm of visitasmedicacionData">
+                                            <img src="../../../../assets/imgMedicaciones/medicacion{{vm.medicacion.id}}.png" class="card-img"
+                                            alt="Imagen 1" style="width: 99.5%;">
+                                        </span>
+                                        </ng-container>
+                                        <ng-container *ngIf="selectedCard === 3">
+                                            <span *ngFor="let vp of visitaspruebasData">
+                                                {{vp.prueba.nombre}}: {{vp.prueba.descripcion}}
+                                            </span>
+                                        </ng-container>
                                     </div>
                                 </div>
                             </div>
@@ -80,9 +106,9 @@
                             (click)="modal.dismiss()">Cerrar</button>
                     </div>
                 </ng-template>
-                </tr>
-            </tbody>
-        </table>
+            </tr>
+        </tbody>
+    </table>
     <!-- Paginación -->
     <div class="pagination">
         <button class="btn btn-outline-secondary" (click)="goToFirstPage()"><<</button>&nbsp;

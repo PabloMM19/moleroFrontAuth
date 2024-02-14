@@ -16,6 +16,11 @@ getVisitasMedicacionData() {
     return this.http.get<IVisitasMedicacionData>(`${this.apiUrl}/visitamedicacion?size=15&page=0`);
 }
 
+/*getbyvisitaid*/
+getVisitasMedicacionByVisitaId(id: number) {
+    return this.http.get<IVisitasMedicacion>(`${this.apiUrl}/visitamedicacion/visita/${id}`);
+}
+
 getDetailVisitasMedicacion(id: number): Observable<IVisitasMedicacion> {
     return this.http.get<IVisitasMedicacion>(`${this.apiUrl}/visitamedicacion/${id}`);
 }

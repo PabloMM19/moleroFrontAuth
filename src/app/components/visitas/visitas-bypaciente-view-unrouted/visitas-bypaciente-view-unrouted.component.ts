@@ -1,7 +1,11 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IVisitas, IVisitasData } from 'src/app/model/visitas.model';
+import { IVisitasMedicacion } from 'src/app/model/visitasmedicacion.model';
+import { IVisitasPrueba } from 'src/app/model/visitaspruebas.model';
 import { VisitasService } from 'src/app/service/visitas.service';
+import { VisitasmedicacionService } from 'src/app/service/visitasmedicacion.service';
+import { VisitaspruebasService } from 'src/app/service/visitaspruebas.service';
 
 @Component({
   selector: 'app-visitas-bypaciente-view-unrouted',
@@ -12,14 +16,19 @@ export class VisitasBypacienteViewUnroutedComponent {
 
   @Input() id: number = 1;
 
+  selectedCard: number = 0;
+
   visitas: IVisitas[] = [];
+  visitasmedicacionData:IVisitasMedicacion[] = [];
+  visitaspruebasData: IVisitasPrueba[] = [];
 
   currentPage: number = 0; // Establece la página actual aquí
   totalPages: number = 0;
   pageSize = 15;
   pages: number[] = [];
 
-  constructor(private visitaService: VisitasService, private modalService: NgbModal) {
+  constructor(private visitaService: VisitasService, private modalService: NgbModal, private visitasMedicacionService: VisitasmedicacionService,
+    private visitasPruebaService: VisitaspruebasService) {
 
   }
 
@@ -44,9 +53,50 @@ export class VisitasBypacienteViewUnroutedComponent {
     );
   }
 
-  openModal(content: any) {
-    this.modalService.open(content, { centered: true, size: 'lg' });
+  getVisitasMedicacionByVisitaId(id: number) {
+    this.visitasMedicacionService.getVisitasMedicacionByVisitaId(id).subscribe(
+      (data: any) => {
+        if (Array.isArray(data.content)) {
+          this.visitasmedicacionData = data.content;
+        } else {
+          this.visitasmedicacionData = [data.content];
+        }
+        console.log('Medicacion de la visita:', this.visitasmedicacionData);
+      },
+      (error) => {
+        console.error('Error al obtener la lista', error);
+        // Maneja el error según tus necesidades
+      }
+    );
   }
+
+  getVisitasPruebasByVisitaId(id: number) {
+    this.visitasPruebaService.getbyvisitaid(id).subscribe(
+      (data: IVisitasPrueba | IVisitasPrueba[]) => {
+        if (Array.isArray(data)) {
+          this.visitaspruebasData = data;
+        } else {
+          this.visitaspruebasData = [data];
+        }
+        console.log('Pruebas de la visita:', this.visitaspruebasData);
+      },
+      (error) => {
+        console.error('Error al obtener la lista', error);
+        // Maneja el error según tus necesidades
+      }
+    );
+  }
+
+
+  openModal(content: any, visitaId: number) {
+    this.getVisitasMedicacionByVisitaId(visitaId);
+    this.getVisitasPruebasByVisitaId(visitaId);
+    this.modalService.open(content, { centered: true, size: 'lg' });
+}
+
+  showDetails(cardNumber: number) {
+    this.selectedCard = cardNumber;
+}
   
 
   /* PAGINATION */
